@@ -1,6 +1,8 @@
 ![CryptoPay](/header.png)
-
-[![documentations](https://img.shields.io/badge/Documentations-Book-blue.svg?style=flat-square)](https://telegra.ph/Crypto-Pay-API-11-25)
+[![package](https://img.shields.io/nuget/vpre/CryptoPay.svg?label=CryptoPay%20Package&style=flat-square)](https://www.nuget.org/packages/CryptoPay)
+[![Bot API Version](https://img.shields.io/badge/CryptoPay%20API-1.1%20(February%2002,%202022)-f36caf.svg?style=flat-square)](https://telegra.ph/Crypto-Pay-API-11-25)
+[![documentations](https://img.shields.io/badge/Documentations-Book-Green.svg?style=flat-square)](https://telegra.ph/Crypto-Pay-API-11-25)
+# .NET Client for CryptoPay by [@CryptoBot](https://t.me/CryptoBot)
 
 **[Crypto Pay](https://t.me/CryptoBot/?start=pay)** is a payment system based on [@CryptoBot](https://t.me/CryptoBot), which allows you to accept payments in cryptocurrency using the API.
 
@@ -8,9 +10,7 @@ This **.NET** library help you to work with **Crypto Pay** via [Crypto Pay API](
 
 ## Install
 
-```sh
-Install-Package CryptoPay
-```
+Use the [nuget package](https://www.nuget.org/packages/CryptoPay/).
 
 ## Usage
 
@@ -18,7 +18,7 @@ Install-Package CryptoPay
 
 First, you need to create your application and get an API token. Open [@CryptoBot](https://t.me/CryptoBot?start=pay) or [@CryptoTestnetBot](https://t.me/CryptoTestnetBot?start=pay) (for testnet), send a command `/pay` to create a new app and get API Token.
 
-Next step: try to call a simple `getMe()` method to check that everything is working well:
+Next step: try to call a simple `GetMeAsync(...)` method to check that everything is working well:
 
 ```csharp
 var cryptoPayClient = new CryptoPayClient("1234:XXXXXXXX");
