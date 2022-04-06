@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <LangVersion>10</LangVersion>
+        <Nullable>disable</Nullable>
+        <AssemblyVersion>1.1.0</AssemblyVersion>
+        <FileVersion>1.1.0</FileVersion>
+        <PackageVersion>1.1.0</PackageVersion>
+        <Title></Title>
+        <Authors>Alexander Shitov</Authors>
+        <Description>Cryptocurrency payment system based on @cryptobot in Telegram</Description>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>package-icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/WinoGarcia/CryptoPay.git</RepositoryUrl>
+        <PackageTags>CryptoPay;Api;CryptoBot;Telegram;Bot</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Copyright>Copyright © CryptoPay.NET 2022</Copyright>
+        <PackageProjectUrl>https://github.com/WinoGarcia/CryptoPay</PackageProjectUrl>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\6.0.1\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\package-icon.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+        <Link>package-icon.png</Link>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\README.md">
+        <Link>README.md</Link>
+      </Content>
+    </ItemGroup>
+
+</Project>
