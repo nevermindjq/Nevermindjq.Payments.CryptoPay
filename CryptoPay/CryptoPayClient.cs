@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using CryptoPay.Extensions;
-using CryptoPay.Requests;
 using CryptoPay.Requests.Base;
 using CryptoPay.Responses;
 
@@ -136,7 +135,6 @@ public class CryptoPayClient : ICryptoPayClient
 
     #region Private Methods
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static long GetApplicationId(string token)
     {
         ReadOnlySpan<char> dataAsSpan = token;

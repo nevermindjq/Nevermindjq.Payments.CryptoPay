@@ -1,5 +1,8 @@
 ﻿namespace CryptoPay.Responses;
 
+/// <summary>
+///     Response from service CryptoPay.
+/// </summary>
 public interface IResponse
 {
     /// <summary>

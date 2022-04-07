@@ -10,6 +10,9 @@ using Newtonsoft.Json;
 
 namespace CryptoPay.Extensions;
 
+/// <summary>
+///     HttpResponseMessage extension class.
+/// </summary>
 public static class HttpResponseMessageExtensions
 {
     private static T DeserializeJsonFromStream<T>(this Stream stream)

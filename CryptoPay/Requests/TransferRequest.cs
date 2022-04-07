@@ -44,6 +44,9 @@ public class TransferRequest
         this.DisableSendNotification = disableSendNotification;
     }
 
+    /// <summary>
+    ///     One of the <see cref="TransferStatuses"/>
+    /// </summary>
     [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
     [JsonConverter(typeof(StringEnumConverter))]
     public TransferStatuses? Status { get; set; }

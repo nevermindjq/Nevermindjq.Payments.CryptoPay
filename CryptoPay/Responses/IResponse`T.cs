@@ -1,5 +1,6 @@
 ﻿namespace CryptoPay.Responses;
 
+/// <inheritdoc />
 public interface IResponse<TResult> : IResponse
 {
     /// <summary>

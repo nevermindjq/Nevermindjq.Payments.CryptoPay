@@ -3,7 +3,7 @@
 namespace CryptoPay.Requests.Base;
 
 /// <summary>
-///     Represents a request to Bot API.
+///     Represents a request to CryptoPay API.
 /// </summary>
 public interface IRequest
 {

@@ -1,5 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 
+#pragma warning disable CS1591
 namespace CryptoPay.Types;
 
 /// <summary>

@@ -3,14 +3,15 @@
     <PropertyGroup>
         <LangVersion>10</LangVersion>
         <Nullable>disable</Nullable>
-        <AssemblyVersion>1.1.0</AssemblyVersion>
-        <FileVersion>1.1.0</FileVersion>
-        <PackageVersion>1.1.0</PackageVersion>
+        <AssemblyVersion>1.1.2</AssemblyVersion>
+        <FileVersion>1.1.2</FileVersion>
+        <PackageVersion>1.1.2</PackageVersion>
         <Title></Title>
         <Authors>Alexander Shitov</Authors>
         <Description>Cryptocurrency payment system based on @cryptobot in Telegram</Description>
         <PackageLicenseUrl></PackageLicenseUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageIcon>package-icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/WinoGarcia/CryptoPay.git</RepositoryUrl>
         <PackageTags>CryptoPay;Api;CryptoBot;Telegram;Bot</PackageTags>
@@ -18,6 +19,7 @@
         <Copyright>Copyright © CryptoPay.NET 2022</Copyright>
         <PackageProjectUrl>https://github.com/WinoGarcia/CryptoPay</PackageProjectUrl>
         <TargetFramework>net6.0</TargetFramework>
+        <PackageReleaseNotes>Fixed code documentation</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>

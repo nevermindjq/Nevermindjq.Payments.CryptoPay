@@ -5,6 +5,9 @@ using CryptoPay.Types;
 
 namespace CryptoPay.Exceptions;
 
+/// <summary>
+///     Exception included <see cref="Error"/>
+/// </summary>
 public class RequestException : Exception
 {
     /// <summary>
@@ -55,6 +58,9 @@ public class RequestException : Exception
     /// </summary>
     public HttpStatusCode? HttpStatusCode { get; }
     
+    /// <summary>
+    ///     Error from response.
+    /// </summary>
     public Error Error { get; }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -5,6 +5,9 @@ using CryptoPay.Types;
 
 namespace CryptoPay;
 
+/// <summary>
+///     Helper for main <see cref="CryptoPayClient"/>.
+/// </summary>
 public static class CryptoPayHelper
 {
     /// <summary>

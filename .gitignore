@@ -3,3 +3,4 @@ CryptoPay.Tests/bin
 CryptoPay.Tests/obj
 CryptoPay/bin
 CryptoPay/obj
+*.user

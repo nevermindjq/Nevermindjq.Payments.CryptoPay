@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 
 namespace CryptoPay.Requests.Base;
 
+/// <inheritdoc />
 public class RequestBase<TResponse> : IRequest<TResponse>
 {
     #region Public Methods

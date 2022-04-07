@@ -8,6 +8,9 @@ using CryptoPay.Types;
 
 namespace CryptoPay;
 
+/// <summary>
+///     Crypto Pay Allowed methods. 
+/// </summary>
 public static class CryptoPayExtensions
 {
     /// <summary>

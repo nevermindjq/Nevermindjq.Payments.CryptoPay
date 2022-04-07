@@ -42,6 +42,10 @@ public class Update
     [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
     public JObject Payload { get; set; }
 
+    /// <summary>
+    ///     Serialize object to string.
+    /// </summary>
+    /// <returns></returns>
     public override string ToString()
     {
         return JsonConvert.SerializeObject(this);
