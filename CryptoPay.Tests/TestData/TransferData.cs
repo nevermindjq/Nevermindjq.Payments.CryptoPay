@@ -21,10 +21,19 @@ public class TransferData : TheoryData<HttpStatusCode, Error?, TransferRequest>
                 Assets.TON,
                 0.1,
                 Guid.NewGuid().ToString(),
-                "comment"
-                // The CryptoPay service handles this flag incorrectly.
-                // Will be fixed later.
-                /*disableSendNotification: true*/)
+                disableSendNotification: true)
+        );
+
+        this.Add(
+            default,
+            default,
+            new TransferRequest(
+                CryptoPayTestHelper.UserId,
+                Assets.TON,
+                0.1,
+                Guid.NewGuid().ToString(),
+                "Transfer tests",
+                false)
         );
 
         this.Add(
