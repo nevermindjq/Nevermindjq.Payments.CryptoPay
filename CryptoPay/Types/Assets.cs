@@ -3,7 +3,6 @@ namespace CryptoPay.Types;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
-
 /// <summary>
 ///     Available currencies.
 /// </summary>
@@ -12,7 +11,7 @@ public enum Assets
     // Crypto
     BTC,
     TON,
-    ETH, //(testnet only)
+    ETH,
     BNB,
     USDT,
     USDC,
