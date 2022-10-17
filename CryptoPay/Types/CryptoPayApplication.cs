@@ -7,7 +7,7 @@ namespace CryptoPay.Types;
 ///     Basic information about an application.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class CryptoPayApplication
+public sealed class CryptoPayApplication
 {
     /// <summary>
     ///     Your application Id.

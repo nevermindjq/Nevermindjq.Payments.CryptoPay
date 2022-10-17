@@ -9,7 +9,7 @@ namespace CryptoPay.Responses;
 /// </summary>
 /// <typeparam name="TResult">Expected type of operation result</typeparam>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class ApiResponse<TResult> : IResponse<TResult>
+internal sealed class ApiResponse<TResult> : IResponse<TResult>
 {
     /// <summary>
     ///     Initializes an instance of <see cref="ApiResponse{TResult}" />

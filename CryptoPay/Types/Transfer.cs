@@ -7,7 +7,7 @@ namespace CryptoPay.Types;
 
 /// <inheritdoc />
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class Transfer : ITransfer
+public sealed class Transfer : ITransfer
 {
     /// <summary>
     ///     Unique ID for this transfer.

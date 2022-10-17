@@ -10,7 +10,7 @@ namespace CryptoPay.Requests;
 ///     Use this class to create <see cref="Invoice"/> request.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class CreateInvoiceRequest 
+public sealed class CreateInvoiceRequest
     : ParameterlessRequest<Invoice>, 
       IInvoice
 {
@@ -99,13 +99,13 @@ public class CreateInvoiceRequest
     ///     Optional. Allow a user to pay the invoice anonymously. Default is true.
     /// </summary>
     [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public bool? AllowAnonymous;
+    public bool? AllowAnonymous { get; set; }
 
     /// <summary>
     ///     Optional. You can set a payment time limit for the invoice in seconds. Values between 1-2678400 are accepted.
     /// </summary>
     [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public long ExpiresIn;
+    public long ExpiresIn { get; set; }
 
     #endregion
 }

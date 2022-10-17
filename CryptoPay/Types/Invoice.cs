@@ -7,7 +7,7 @@ namespace CryptoPay.Types;
 
 /// <inheritdoc />
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class Invoice : IInvoice
+public sealed class Invoice : IInvoice
 {
     /// <summary>
     ///     Unique ID for this invoice.

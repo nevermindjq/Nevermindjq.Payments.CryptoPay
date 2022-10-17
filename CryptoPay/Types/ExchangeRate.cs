@@ -8,7 +8,7 @@ namespace CryptoPay.Types;
 ///     Exchange rates of supported currencies.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class ExchangeRate
+public sealed class ExchangeRate
 {
     /// <summary>
     ///     Is valid.

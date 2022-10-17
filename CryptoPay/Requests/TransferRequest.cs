@@ -10,7 +10,7 @@ namespace CryptoPay.Requests;
 ///     Use this class to get <see cref="Transfer"/> request.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class TransferRequest
+public sealed class TransferRequest
     : ParameterlessRequest<Transfer>,
         ITransfer
 {

@@ -7,7 +7,7 @@ namespace CryptoPay.Types;
 ///     Error from response.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class Error
+public sealed class Error
 {
     /// <summary>
     ///     Create instance of <see cref="Error"/>.

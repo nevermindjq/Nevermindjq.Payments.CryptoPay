@@ -11,7 +11,7 @@ using CryptoPay.Responses;
 namespace CryptoPay;
 
 /// <inheritdoc />
-public class CryptoPayClient : ICryptoPayClient
+public sealed class CryptoPayClient : ICryptoPayClient
 {
     #region Constructors
 

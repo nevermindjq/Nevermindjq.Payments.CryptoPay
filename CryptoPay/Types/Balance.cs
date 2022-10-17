@@ -8,7 +8,7 @@ namespace CryptoPay.Types;
 ///     Balance of your application.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class Balance
+public sealed class Balance
 {
     /// <summary>
     ///     Current currency.

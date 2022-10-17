@@ -10,7 +10,7 @@ namespace CryptoPay.Requests;
 ///     Use this class to get list of <see cref="Currency"/> request.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class GetCurrenciesRequest : ParameterlessRequest<List<Currency>>
+public sealed class GetCurrenciesRequest : ParameterlessRequest<List<Currency>>
 {
     /// <summary>
     ///     Initializes a new request to get list of <see cref="Currency"/>

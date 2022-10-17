@@ -8,7 +8,7 @@ namespace CryptoPay.Responses;
 ///     Response with <see cref="Error"/>.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class ApiResponseWithError : IResponse
+internal sealed class ApiResponseWithError : IResponse
 {
     /// <summary>
     ///     Initializes an instance of <see cref="ApiResponseWithError" />

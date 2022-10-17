@@ -14,7 +14,7 @@ namespace CryptoPay.Types;
 ///     with a secret key that is SHA256 hash of your app's token.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class Update
+public sealed class Update
 {
     /// <summary>
     ///     Non-unique update ID.

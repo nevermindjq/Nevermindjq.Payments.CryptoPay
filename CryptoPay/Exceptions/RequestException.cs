@@ -8,7 +8,7 @@ namespace CryptoPay.Exceptions;
 /// <summary>
 ///     Exception included <see cref="Error"/>
 /// </summary>
-public class RequestException : Exception
+public sealed class RequestException : Exception
 {
     /// <summary>
     ///     Initializes a new instance of the <see cref="RequestException" /> class.

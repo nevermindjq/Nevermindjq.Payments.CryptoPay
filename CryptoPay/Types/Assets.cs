@@ -20,7 +20,7 @@ public enum Assets
     //Fiat
     RUB = 100, // Russian ruble
     USD = 101, // Dollar USA
-    EUR = 102, // euro
+    EUR = 102, // Euro
     BYN = 103, // Belarusian ruble
     UAH = 104, // Ukrainian hryvnia
     GBP = 105, // Pound sterling

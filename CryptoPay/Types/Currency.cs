@@ -7,7 +7,7 @@ namespace CryptoPay.Types;
 ///     Supported currencies.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class Currency
+public sealed class Currency
 {
     /// <summary>
     ///     Is blockchain.
