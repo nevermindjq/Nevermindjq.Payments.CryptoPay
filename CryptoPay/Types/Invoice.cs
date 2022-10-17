@@ -102,4 +102,16 @@ public class Invoice : IInvoice
     /// <inheritdoc />
     [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
     public string PaidBtnUrl { get; set; }
+
+    /// <summary>
+    ///     Optional. Amount of charged service fees.
+    /// </summary>
+    [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public string Fee { get; set; }
+
+    /// <summary>
+    ///     Optional. Price of the asset in USD at the time the invoice was paid.
+    /// </summary>
+    [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public string UsdRate { get; set; }
 }
