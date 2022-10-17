@@ -27,7 +27,8 @@ public class ExchangeRate
     ///     Target currency. 
     /// </summary>
     [JsonProperty(Required = Required.Always)]
-    public string Target { get; set; }
+    [JsonConverter(typeof(StringEnumConverter))]
+    public Assets Target { get; set; }
 
     /// <summary>
     ///     Exchange rate.
