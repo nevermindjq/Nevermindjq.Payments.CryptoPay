@@ -1,6 +1,6 @@
 ![CryptoPay](/header.png)
 [![package](https://img.shields.io/nuget/vpre/CryptoPay.svg?label=CryptoPay%20Package&style=flat-square)](https://www.nuget.org/packages/CryptoPay)
-[![Bot API Version](https://img.shields.io/badge/CryptoPay%20API-1.1.1%20(July%2026,%202022)-f36caf.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
+[![Bot API Version](https://img.shields.io/badge/CryptoPay%20API-1.1.3%20(October%2003,%202022)-f36caf.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
 [![documentations](https://img.shields.io/badge/Documentations-Book-Green.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
 # .NET Client for CryptoPay by [@CryptoBot](https://t.me/CryptoBot)
 
