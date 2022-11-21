@@ -10,7 +10,7 @@ namespace CryptoPay.Requests;
 ///     Use this class to create <see cref="Balance"/> request.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class GetBalanceRequest : ParameterlessRequest<List<Balance>>
+internal sealed class GetBalanceRequest : ParameterlessRequest<List<Balance>>
 {
     /// <summary>
     ///     Initializes a new request to get <see cref="Balance"/>.

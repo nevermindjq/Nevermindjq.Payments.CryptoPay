@@ -10,7 +10,7 @@ namespace CryptoPay.Requests;
 ///     Use this class to get <see cref="Invoices"/> request.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class GetInvoicesRequest : ParameterlessRequest<Invoices>
+internal sealed class GetInvoicesRequest : ParameterlessRequest<Invoices>
 {
     #region Constructors
 

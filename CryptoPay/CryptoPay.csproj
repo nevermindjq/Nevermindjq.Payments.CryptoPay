@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <LangVersion>10</LangVersion>
+        <LangVersion>11</LangVersion>
         <Nullable>disable</Nullable>
         <AssemblyVersion>1.1.3.1</AssemblyVersion>
         <FileVersion>1.1.3.1</FileVersion>
@@ -18,8 +18,8 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Copyright>Copyright © CryptoPay.NET 2022</Copyright>
         <PackageProjectUrl>https://github.com/WinoGarcia/CryptoPay</PackageProjectUrl>
-        <TargetFramework>net6.0</TargetFramework>
         <PackageReleaseNotes>Fixed code documentation</PackageReleaseNotes>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
