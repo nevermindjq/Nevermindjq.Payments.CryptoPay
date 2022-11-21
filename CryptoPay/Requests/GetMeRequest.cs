@@ -10,7 +10,7 @@ namespace CryptoPay.Requests;
 ///     about the bot in form of a <see cref="CryptoPayApplication" /> object.
 /// </summary>
 [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class GetMeRequest : ParameterlessRequest<CryptoPayApplication>
+internal sealed class GetMeRequest : ParameterlessRequest<CryptoPayApplication>
 {
     /// <summary>
     ///     Initializes a new request to get a <see cref="CryptoPayApplication"/>
