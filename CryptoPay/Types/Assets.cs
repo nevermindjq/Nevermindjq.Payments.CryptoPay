@@ -31,5 +31,11 @@ public enum Assets
     TRY = 110, // Turkish lira
     AMD = 111, // Armenian dram
     THB = 112, // Thai baht
-    INR = 113 // Indian rupee
+    INR = 113, // Indian rupee
+    BRL = 114, // Brazilian real
+    IDR = 115, // Indonesian rupiah
+    AZN = 116, // Azerbaijani manat
+    AED = 117, // United Arab Emirates dirham
+    PLN = 118, // Polish złoty
+    ILS = 119, // Israeli new shekel
 }
