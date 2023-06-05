@@ -16,6 +16,7 @@ public enum Assets
     USDT,
     USDC,
     BUSD,
+    TRX,
 
     //Fiat
     RUB = 100, // Russian ruble
