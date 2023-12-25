@@ -6,7 +6,7 @@ namespace CryptoPay.Types;
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
 /// <summary>
-///     Available currencies.
+///     Available crypto currencies.
 /// </summary>
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum Assets
@@ -18,11 +18,10 @@ public enum Assets
     BNB,
     USDT,
     USDC,
-    BUSD,
     TRX,
     LTC,
     JET,
-
+    
     //Fiat
     RUB = 100, // Russian ruble
     USD = 101, // Dollar USA
