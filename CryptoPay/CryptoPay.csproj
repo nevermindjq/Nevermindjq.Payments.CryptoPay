@@ -20,7 +20,7 @@
         <PackageProjectUrl>https://github.com/WinoGarcia/CryptoPay</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes></PackageReleaseNotes>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
@@ -35,6 +35,10 @@
             <Pack>True</Pack>
             <Link>README.md</Link>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Text.Json" Version="8.0.0" />
     </ItemGroup>
 
 </Project>
