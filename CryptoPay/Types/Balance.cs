@@ -1,25 +1,27 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace CryptoPay.Types;
 
 /// <summary>
 ///     Balance of your application.
 /// </summary>
-[JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public sealed class Balance
 {
     /// <summary>
     ///     Current currency.
     /// </summary>
-    [JsonProperty(Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonRequired]
     public Assets CurrencyCode { get; set; }
 
     /// <summary>
     ///     Number of available coins.
     /// </summary>
-    [JsonProperty(Required = Required.Always)]
+    [JsonRequired]
     public double Available { get; set; }
+
+    /// <summary>
+    ///     Unavailable amount currently is on hold in float.
+    /// </summary>
+    [JsonRequired]
+    public string Onhold { get; set; }
 }
