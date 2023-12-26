@@ -50,7 +50,7 @@ public sealed class CreateInvoiceRequest
         string payload = default,
         bool allowComments = true,
         bool allowAnonymous = true,
-        long expiresIn = default)
+        int expiresIn = 2678400)
         : base("createInvoice")
     {
         this.CurrencyType = currencyType;
@@ -115,7 +115,7 @@ public sealed class CreateInvoiceRequest
     /// <summary>
     ///     Optional. You can set a payment time limit for the invoice in seconds. Values between 1-2678400 are accepted.
     /// </summary>
-    public long ExpiresIn { get; set; }
+    public int ExpiresIn { get; set; }
 
     #endregion
 }

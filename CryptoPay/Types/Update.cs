@@ -35,7 +35,7 @@ public sealed class Update
     /// <summary>
     ///     Payload of the update.
     /// </summary>
-    public string Payload { get; set; }
+    public Invoice Payload { get; set; }
 
     /// <summary>
     ///     Serialize object to string.

@@ -48,7 +48,7 @@ public static class CryptoPayExtensions
     /// <param name="payload">Optional.Any data you want to attach to the invoice (for example, user ID, payment ID, ect). Up to 4kb.</param>
     /// <param name="allowComments">Optional. Allow a user to add a comment to the payment. Default is true.</param>
     /// <param name="allowAnonymous">Optional. Allow a user to pay the invoice anonymously. Default is <c>true</c>.</param>
-    /// <param name="expiresIn">Optional. Allow a user to pay the invoice anonymously. Default is true.</param>
+    /// <param name="expiresIn">Optional. You can set a payment time limit for the invoice in seconds. Values between 1-2678400 are accepted.</param>
     /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
     /// <returns><see cref="Invoice"/></returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
@@ -66,7 +66,7 @@ public static class CryptoPayExtensions
         string payload = default,
         bool allowComments = true,
         bool allowAnonymous = true,
-        long expiresIn = default,
+        int expiresIn = 2678400,
         CancellationToken cancellationToken = default) =>
         await cryptoPayClientClient
             .MakeRequestAsync(new CreateInvoiceRequest(
@@ -81,7 +81,8 @@ public static class CryptoPayExtensions
                     paidBtnUrl,
                     payload,
                     allowComments,
-                    allowAnonymous, expiresIn),
+                    allowAnonymous, 
+                    expiresIn),
                 cancellationToken)
             .ConfigureAwait(false);
 
