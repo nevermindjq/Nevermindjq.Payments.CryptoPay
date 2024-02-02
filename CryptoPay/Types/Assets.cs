@@ -12,35 +12,152 @@ namespace CryptoPay.Types;
 public enum Assets
 {
     // Crypto
+
+    /// <summary>
+    /// Bitcoin
+    /// </summary>
     BTC,
+
+    /// <summary>
+    /// TonCoin
+    /// </summary>
     TON,
+
+    /// <summary>
+    /// Ethereum
+    /// </summary>
     ETH,
+
+    /// <summary>
+    /// BNB Coin
+    /// </summary>
     BNB,
+
+    /// <summary>
+    /// Tether (USDT)
+    /// </summary>
     USDT,
+
+    /// <summary>
+    /// USD Coin
+    /// </summary>
     USDC,
+
+    /// <summary>
+    /// TRON (TRX)
+    /// </summary>
     TRX,
+
+    /// <summary>
+    /// Litecoin
+    /// </summary>
     LTC,
+
+    /// <summary>
+    /// Jetcoin
+    /// </summary>
     JET,
-    
-    //Fiat
-    RUB = 100, // Russian ruble
-    USD = 101, // Dollar USA
-    EUR = 102, // Euro
-    BYN = 103, // Belarusian ruble
-    UAH = 104, // Ukrainian hryvnia
-    GBP = 105, // Pound sterling
-    CNY = 106, // Renminbi
-    KZT = 107, // Kazakhstani tenge
-    UZS = 108, // Uzbekistani som
-    GEL = 109, // Georgian lari
-    TRY = 110, // Turkish lira
-    AMD = 111, // Armenian dram
-    THB = 112, // Thai baht
-    INR = 113, // Indian rupee
-    BRL = 114, // Brazilian real
-    IDR = 115, // Indonesian rupiah
-    AZN = 116, // Azerbaijani manat
-    AED = 117, // United Arab Emirates dirham
-    PLN = 118, // Polish złoty
-    ILS = 119 // Israeli new shekel
+
+    /// <summary>
+    /// Jetton GRAM from blockchain TON
+    /// </summary>
+    /// <seealso href="https://gramcoin.org/"/>
+    GRAM,
+
+    // Fiat
+
+    /// <summary>
+    /// Russian ruble
+    /// </summary>
+    RUB = 100,
+
+    /// <summary>
+    /// Dollar USA
+    /// </summary>
+    USD = 101,
+
+    /// <summary>
+    /// Euro
+    /// </summary>
+    EUR = 102,
+
+    /// <summary>
+    /// Belarusian ruble
+    /// </summary>
+    BYN = 103,
+
+    /// <summary>
+    /// Ukrainian hryvnia
+    /// </summary>
+    UAH = 104,
+
+    /// <summary>
+    /// Pound sterling
+    /// </summary>
+    GBP = 105,
+
+    /// <summary>
+    /// Renminbi
+    /// </summary>
+    CNY = 106,
+
+    /// <summary>
+    /// Kazakhstani tenge
+    /// </summary>
+    KZT = 107,
+
+    /// <summary>
+    /// Uzbekistani som
+    /// </summary>
+    UZS = 108,
+
+    /// <summary>
+    /// Georgian lari
+    /// </summary>
+    GEL = 109,
+
+    /// <summary>
+    /// Turkish lira
+    /// </summary>
+    TRY = 110,
+
+    /// <summary>
+    /// Armenian dram
+    /// </summary>
+    AMD = 111,
+
+    /// <summary>
+    /// Thai baht
+    /// </summary>
+    THB = 112,
+
+    /// <summary>
+    /// Indian rupee
+    /// </summary>
+    INR = 113,
+
+    /// <summary>
+    /// Brazilian real
+    /// </summary>
+    BRL = 114,
+
+    /// <summary>
+    /// Azerbaijani manat
+    /// </summary>
+    AZN = 116,
+
+    /// <summary>
+    /// United Arab Emirates dirham 
+    /// </summary>
+    AED = 117,
+
+    /// <summary>
+    /// Polish złoty
+    /// </summary>
+    PLN = 118,
+
+    /// <summary>
+    /// Israeli new shekel
+    /// </summary>
+    ILS = 119
 }
