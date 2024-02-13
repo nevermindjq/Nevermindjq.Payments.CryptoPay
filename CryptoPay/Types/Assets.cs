@@ -142,6 +142,11 @@ public enum Assets
     BRL = 114,
 
     /// <summary>
+    /// Indonesian rupiah
+    /// </summary>
+    IDR = 115,
+
+    /// <summary>
     /// Azerbaijani manat
     /// </summary>
     AZN = 116,
