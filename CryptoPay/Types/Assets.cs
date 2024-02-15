@@ -142,6 +142,11 @@ public enum Assets
     BRL = 114,
 
     /// <summary>
+    /// Indonesian rupiah
+    /// </summary>
+    IDR = 115,
+
+    /// <summary>
     /// Azerbaijani manat
     /// </summary>
     AZN = 116,
@@ -159,5 +164,15 @@ public enum Assets
     /// <summary>
     /// Israeli new shekel
     /// </summary>
-    ILS = 119
+    ILS = 119,
+
+    /// <summary>
+    /// Kyrgyz som
+    /// </summary>
+    KGS = 120,
+
+    /// <summary>
+    /// Tajikistani somoni
+    /// </summary>
+    TJS = 121
 }
