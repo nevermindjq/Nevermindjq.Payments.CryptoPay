@@ -7,7 +7,7 @@ using Xunit;
 namespace CryptoPay.Tests.TestData;
 
 /// <summary>
-///     For this test, you must have test coins.
+/// For this test, you must have test coins.
 /// </summary>
 public class TransferData : TheoryData<HttpStatusCode, Error?, TransferRequest>
 {
@@ -18,7 +18,7 @@ public class TransferData : TheoryData<HttpStatusCode, Error?, TransferRequest>
             default,
             new TransferRequest(
                 CryptoPayTestHelper.UserId,
-                Assets.TON,
+                Assets.TON.ToString(),
                 0.5,
                 Guid.NewGuid().ToString(),
                 disableSendNotification: true)
@@ -29,7 +29,7 @@ public class TransferData : TheoryData<HttpStatusCode, Error?, TransferRequest>
             default,
             new TransferRequest(
                 CryptoPayTestHelper.UserId,
-                Assets.TON,
+                Assets.TON.ToString(),
                 0.5,
                 Guid.NewGuid().ToString(),
                 Guid.NewGuid().ToString(),
@@ -41,7 +41,7 @@ public class TransferData : TheoryData<HttpStatusCode, Error?, TransferRequest>
             default,
             new TransferRequest(
                 CryptoPayTestHelper.UserId,
-                Assets.BNB,
+                Assets.BNB.ToString(),
                 0.0123,
                 Guid.NewGuid().ToString(),
                 disableSendNotification: false)
@@ -52,8 +52,17 @@ public class TransferData : TheoryData<HttpStatusCode, Error?, TransferRequest>
             new Error(400, "AMOUNT_TOO_BIG"),
             new TransferRequest(
                 CryptoPayTestHelper.UserId,
-                Assets.BTC,
+                Assets.BTC.ToString(),
                 1000,
+                Guid.NewGuid().ToString())
+        );
+        this.Add(
+            HttpStatusCode.InternalServerError,
+            new Error(500, "APP_ERROR"),
+            new TransferRequest(
+                CryptoPayTestHelper.UserId,
+                Assets.Unknown.ToString(),
+                10,
                 Guid.NewGuid().ToString())
         );
     }

@@ -7,7 +7,7 @@ namespace CryptoPay.Types;
 public sealed class Transfer : ITransfer
 {
     /// <summary>
-    ///     Unique ID for this transfer.
+    /// Unique ID for this transfer.
     /// </summary>
     [JsonRequired]
     public long TransferId { get; set; }
@@ -18,7 +18,7 @@ public sealed class Transfer : ITransfer
 
     /// <inheritdoc/>
     [JsonRequired]
-    public Assets Asset { get; set; }
+    public string Asset { get; set; }
 
     /// <inheritdoc/>
     [JsonRequired]

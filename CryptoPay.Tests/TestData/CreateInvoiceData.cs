@@ -14,7 +14,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             default,
             new CreateInvoiceRequest(
                 5.105,
-                asset: Assets.TON)
+                asset: Assets.TON.ToString())
         );
         this.Add(
             default,
@@ -22,14 +22,14 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new CreateInvoiceRequest(
                 1.105,
                 CurrencyTypes.fiat,
-                fiat: Assets.USD)
+                fiat: Assets.USD.ToString())
         );
         this.Add(
             default,
             default,
             new CreateInvoiceRequest(
                 5.105,
-                asset: Assets.TON,
+                asset: Assets.TON.ToString(),
                 description: "description",
                 hiddenMessage: "hiddenMessage",
                 paidBtnName: PaidButtonNames.callback,
@@ -46,7 +46,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 2.35,
                 CurrencyTypes.fiat,
                 default,
-                Assets.EUR,
+                Assets.EUR.ToString(),
                 default,
                 "description",
                 "hiddenMessage",
@@ -64,7 +64,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new CreateInvoiceRequest(
                 0.0234,
                 CurrencyTypes.crypto,
-                Assets.BNB,
+                Assets.BNB.ToString(),
                 default,
                 default,
                 "description",
@@ -82,7 +82,15 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new Error(400, "PAID_BTN_URL_REQUIRED"),
             new CreateInvoiceRequest(
                 0.105,
-                asset: Assets.TON,
+                asset: Assets.TON.ToString(),
+                paidBtnName: PaidButtonNames.callback)
+        );
+        this.Add(
+            HttpStatusCode.BadRequest,
+            new Error(400, "UNSUPPORTED_ASSET"),
+            new CreateInvoiceRequest(
+                0.123,
+                asset: "FFF",
                 paidBtnName: PaidButtonNames.callback)
         );
     }

@@ -3,12 +3,12 @@
 namespace CryptoPay.Types;
 
 /// <summary>
-///     Exchange rates of supported currencies.
+/// Exchange rates of supported currencies.
 /// </summary>
 public sealed class ExchangeRate
 {
     /// <summary>
-    ///     Is valid.
+    /// Is valid.
     /// </summary>
     [JsonRequired]
     public bool IsValid { get; set; }
@@ -29,16 +29,16 @@ public sealed class ExchangeRate
     /// Source currency.
     /// </summary>
     [JsonRequired]
-    public Assets Source { get; set; }
+    public string Source { get; set; }
 
     /// <summary>
-    ///     Target currency. 
+    /// Target currency. 
     /// </summary>
     [JsonRequired]
-    public Assets Target { get; set; }
+    public string Target { get; set; }
 
     /// <summary>
-    ///     Exchange rate.
+    /// Exchange rate.
     /// </summary>
     [JsonRequired]
     public double Rate { get; set; }
