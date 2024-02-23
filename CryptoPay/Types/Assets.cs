@@ -6,63 +6,75 @@ namespace CryptoPay.Types;
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
 /// <summary>
-/// Available crypto currencies.
+/// Available crypto and fiat currencies.
+/// <remarks>
+/// Given that the list of available currencies in the CryptoPay service frequently changes, the utilization of these Assets becomes less effective.
+/// However, you can convert an <see cref="Assets"/> value into a string by using Assets.BTC.ToString(), or obtain an Assets value from a text string by using <see cref="AssetsHelper.TryParse"/></remarks>
 /// </summary>
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum Assets
 {
+    /// <summary>
+    /// Unknown asset
+    /// </summary>
+    /// <remarks>
+    /// Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective.
+    /// However, you can utilize the <see cref="AssetsHelper.TryParse"/> method to convert a string value to <see cref="Assets"/>. If the specified string value does not correspond to any element in <see cref="Assets"/>, the method will revert to the default <see cref="Assets.Unknown"/>.
+    /// </remarks>>
+    Unknown = -1,
+
     // Crypto
 
     /// <summary>
     /// Bitcoin
     /// </summary>
-    BTC,
+    BTC = 0,
 
     /// <summary>
     /// TonCoin
     /// </summary>
-    TON,
+    TON = 1,
 
     /// <summary>
     /// Ethereum
     /// </summary>
-    ETH,
+    ETH = 2,
 
     /// <summary>
     /// BNB Coin
     /// </summary>
-    BNB,
+    BNB = 3,
 
     /// <summary>
     /// Tether (USDT)
     /// </summary>
-    USDT,
+    USDT = 4,
 
     /// <summary>
     /// USD Coin
     /// </summary>
-    USDC,
+    USDC = 5,
 
     /// <summary>
     /// TRON (TRX)
     /// </summary>
-    TRX,
+    TRX = 6,
 
     /// <summary>
     /// Litecoin
     /// </summary>
-    LTC,
+    LTC = 7,
 
     /// <summary>
     /// Jetcoin
     /// </summary>
-    JET,
+    JET = 8,
 
     /// <summary>
     /// Jetton GRAM from blockchain TON
     /// </summary>
     /// <seealso href="https://gramcoin.org/"/>
-    GRAM,
+    GRAM = 9,
 
     // Fiat
 
@@ -142,6 +154,11 @@ public enum Assets
     BRL = 114,
 
     /// <summary>
+    /// Indonesian rupiah
+    /// </summary>
+    IDR = 115,
+
+    /// <summary>
     /// Azerbaijani manat
     /// </summary>
     AZN = 116,
@@ -159,5 +176,15 @@ public enum Assets
     /// <summary>
     /// Israeli new shekel
     /// </summary>
-    ILS = 119
+    ILS = 119,
+
+    /// <summary>
+    /// Kyrgyz som
+    /// </summary>
+    KGS = 120,
+
+    /// <summary>
+    /// Tajikistani somoni
+    /// </summary>
+    TJS = 121
 }

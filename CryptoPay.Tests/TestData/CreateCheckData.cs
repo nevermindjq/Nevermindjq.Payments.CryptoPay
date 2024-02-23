@@ -16,15 +16,22 @@ public sealed class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateC
             default,
             default,
             new CreateCheckRequest(
-                Assets.BNB,
+                Assets.BNB.ToString(),
                 0.0123)
         );
         this.Add(
             HttpStatusCode.BadRequest,
             new Error(400, "NOT_ENOUGH_COINS"),
             new CreateCheckRequest(
-                Assets.TON,
+                Assets.TON.ToString(),
                 100.2345)
+        );
+        this.Add(
+            HttpStatusCode.BadRequest,
+            new Error(400, "ASSET_INVALID"),
+            new CreateCheckRequest(
+                "FFF",
+                0.0123)
         );
     }
 }
