@@ -3,9 +3,9 @@
     <PropertyGroup>
         <LangVersion>12</LangVersion>
         <Nullable>disable</Nullable>
-        <AssemblyVersion>1.2.0.2</AssemblyVersion>
-        <FileVersion>1.2.0.2</FileVersion>
-        <PackageVersion>1.2.0.2</PackageVersion>
+        <AssemblyVersion>1.2.0.3</AssemblyVersion>
+        <FileVersion>1.2.0.3</FileVersion>
+        <PackageVersion>1.2.0.3</PackageVersion>
         <Title>Crypto Pay Client</Title>
         <Authors>Alexander Shitov</Authors>
         <Description>Cryptocurrency payment system based on @cryptobot in Telegram</Description>
@@ -16,7 +16,7 @@
         <RepositoryUrl>https://github.com/WinoGarcia/CryptoPay.git</RepositoryUrl>
         <PackageTags>CryptoPay;Api;CryptoBot;Telegram;Bot</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Copyright>Copyright © CryptoPay.NET 2023</Copyright>
+        <Copyright>Copyright © CryptoPay.NET 2024</Copyright>
         <PackageProjectUrl>https://github.com/WinoGarcia/CryptoPay</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes></PackageReleaseNotes>
@@ -38,7 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="System.Text.Json" Version="8.0.0" />
+      <PackageReference Include="System.Text.Json" Version="8.0.2" />
     </ItemGroup>
 
 </Project>
