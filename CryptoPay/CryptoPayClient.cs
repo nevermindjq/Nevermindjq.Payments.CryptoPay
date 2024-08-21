@@ -13,6 +13,13 @@ namespace CryptoPay;
 /// <inheritdoc />
 public sealed class CryptoPayClient : ICryptoPayClient
 {
+    #region Private Fields
+
+    private readonly HttpClient httpClient;
+    private static string defaultCryptoBotApiUrl { get; } = "https://pay.crypt.bot/";
+
+    #endregion
+
     #region Constructors
 
     /// <summary>
@@ -21,22 +28,32 @@ public sealed class CryptoPayClient : ICryptoPayClient
     /// <param name="token">Your application token from CryptoPay.</param>
     /// <param name="httpClient">Optional. <see cref="HttpClient" />.</param>
     /// <param name="apiUrl">
-    /// Optional. Default value is <see cref="DefaultCryptoBotApiUrl" /> main api url.
+    /// Optional. Default value is <see cref="defaultCryptoBotApiUrl" /> main api url.
     /// Test api url is <code>https://testnet-pay.crypt.bot/</code>.
     /// </param>
     /// <exception cref="ArgumentNullException">If token is null.</exception>
+    [Obsolete("Add this client using dependency injection. builder.Services.AddHttpClient<ICryptoPayClient, CryptoPayClient>(...) e.g.")]
     public CryptoPayClient(
         string token,
         HttpClient httpClient = null,
         string apiUrl = default)
     {
-        this.token = string.IsNullOrEmpty(token)
-            ? throw new ArgumentNullException(nameof(token))
-            : token;
-
         this.httpClient = httpClient ?? new HttpClient();
-        this.cryptoBotApiUrl = apiUrl ?? DefaultCryptoBotApiUrl;
-        this.AppId = GetApplicationId(this.token);
+        this.httpClient.BaseAddress = new Uri(apiUrl ?? defaultCryptoBotApiUrl);
+        this.httpClient.DefaultRequestHeaders.Add(
+            "Crypto-Pay-API-Token",
+            string.IsNullOrEmpty(token)
+                ? throw new ArgumentNullException(nameof(token))
+                : token);
+    }
+
+    /// <summary>
+    /// Create <see cref="ICryptoPayClient" /> instance.
+    /// </summary>
+    /// <param name="httpClient"><see cref="HttpClient"/></param>
+    public CryptoPayClient(HttpClient httpClient)
+    {
+        this.httpClient = httpClient;
     }
 
     #endregion
@@ -53,14 +70,10 @@ public sealed class CryptoPayClient : ICryptoPayClient
             throw new ArgumentNullException(nameof(request));
         }
 
-        var url = $"{this.cryptoBotApiUrl}api/{request.MethodName}";
+        var url = $"{this.httpClient.BaseAddress}api/{request.MethodName}";
 
-        using var httpRequest = new HttpRequestMessage(request.Method, url)
-        {
-            Content = request.ToHttpContent()
-        };
-
-        httpRequest.Headers.Add("Crypto-Pay-API-Token", this.token);
+        using HttpRequestMessage httpRequest = new(request.Method, url);
+        httpRequest.Content = request.ToHttpContent();
 
         using var httpResponse = await SendRequestAsync(
                 this.httpClient,
@@ -122,18 +135,6 @@ public sealed class CryptoPayClient : ICryptoPayClient
 
     #endregion
 
-    #region Public Fields
-
-    /// <summary>
-    /// Crypto Bot Api Url.
-    /// </summary>
-    private static string DefaultCryptoBotApiUrl { get; } = "https://pay.crypt.bot/";
-
-    /// <inheritdoc />
-    public long AppId { get; init; }
-
-    #endregion
-
     #region Private Methods
 
     private static long GetApplicationId(string token)
@@ -142,14 +143,6 @@ public sealed class CryptoPayClient : ICryptoPayClient
         var endInd = token.IndexOf(":", StringComparison.Ordinal);
         return long.Parse(dataAsSpan.Slice(0, endInd));
     }
-
-    #endregion
-
-    #region Private Fields
-
-    private readonly HttpClient httpClient;
-    private readonly string cryptoBotApiUrl;
-    private readonly string token;
 
     #endregion
 }

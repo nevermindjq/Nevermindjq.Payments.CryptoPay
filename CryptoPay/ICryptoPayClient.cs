@@ -13,11 +13,6 @@ namespace CryptoPay;
 public interface ICryptoPayClient
 {
     /// <summary>
-    /// Your application Id.
-    /// </summary>
-    public long AppId { get; init; }
-
-    /// <summary>
     /// Make Request to CryptoPay service.
     /// </summary>
     /// <param name="request">Type of request <see cref="IRequest" /></param>

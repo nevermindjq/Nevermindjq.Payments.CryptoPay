@@ -151,4 +151,16 @@ public sealed class Invoice : IInvoice
     /// Available only if status is <see cref="Statuses.paid"/>.
     /// </summary>
     public string FeeAsset { get; set; }
+
+    /// <summary>
+    /// Use this URL to pay an invoice to the Telegram Mini App version.
+    /// </summary>
+    [JsonRequired]
+    public string MiniAppInvoiceUrl { get; set; }
+
+    /// <summary>
+    /// Use this URL to pay an invoice to the Web version of Crypto Bot.
+    /// </summary>
+    [JsonRequired]
+    public string WebAppInvoiceUrl { get; set; }
 }

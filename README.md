@@ -1,7 +1,7 @@
 ![CryptoPay](/header.png)
 [![package](https://img.shields.io/nuget/vpre/CryptoPay.svg?label=CryptoPay%20Package&style=flat-square)](https://www.nuget.org/packages/CryptoPay)
 [![NuGet downloads](https://img.shields.io/nuget/dt/CryptoPay.svg?label=Downloads&style=flat-square&color=orange)](https://www.nuget.org/packages/CryptoPay)
-[![Bot API Version](https://img.shields.io/badge/CryptoPay%20API-1.2%20(November%2024,%202023)-f36caf.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
+[![Bot API Version](https://img.shields.io/badge/CryptoPay%20API-1.4%20(June%2021,%202024)-f36caf.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
 [![documentations](https://img.shields.io/badge/Documentations-Book-Green.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
 # .NET Client for CryptoPay by [@CryptoBot](https://t.me/CryptoBot)
 
@@ -19,20 +19,20 @@ Use the [nuget package](https://www.nuget.org/packages/CryptoPay/).
 
 First, you need to create your application and get an API token. Open [@CryptoBot](https://t.me/CryptoBot?start=pay) or [@CryptoTestnetBot](https://t.me/CryptoTestnetBot?start=pay) (for testnet), send a command `/pay` to create a new app and get API Token.
 
+Don't forget to configure the `ApiUrl` and your `CryptoPayApiToken`:
+
+```csharp
+builder.Services.AddHttpClient<ICryptoPayClient, CryptoPayClient>(client =>
+{
+  client.BaseAddress = new Uri("https://pay.crypt.bot/");
+  client.DefaultRequestHeaders.Add("Crypto-Pay-API-Token", "token");
+});
+```
+
 Next step: try to call a simple `GetMeAsync(...)` method to check that everything is working well:
 
 ```csharp
-var cryptoPayClient = new CryptoPayClient("1234:XXXXXXXX");
 var application = await cryptoPayClient.GetMeAsync(cancellationToken);
-```
-
-You can setup net `apiUrl` (defaults to `https://pay.crypt.bot/`) and `HttpClient` in optional param:
-
-```csharp
-var cryptoPayClient = new CryptoPayClient(
-    token: "1234:XXXXXXXX",
-    httpClient: httpClient,
-    apiUrl: "https://testnet-pay.crypt.bot/");
 ```
 
 Net     | Bot                                                          | Hostname

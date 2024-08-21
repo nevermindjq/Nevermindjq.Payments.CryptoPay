@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using CryptoPay.Exceptions;
@@ -11,7 +12,6 @@ using CryptoPay.Types;
 using Xunit;
 
 #pragma warning disable CS0618 // Type or member is obsolete
-
 namespace CryptoPay.Tests;
 
 public class AvailableMethodsTests
@@ -20,9 +20,11 @@ public class AvailableMethodsTests
 
     private readonly CancellationToken cancellationToken = new CancellationTokenSource().Token;
 
-    private readonly ICryptoPayClient cryptoPayClient = new CryptoPayClient(
-        CryptoPayTestHelper.Token,
-        apiUrl: CryptoPayTestHelper.ApiUrl);
+    private readonly ICryptoPayClient cryptoPayClient = new CryptoPayClient(new HttpClient()
+    {
+        BaseAddress = new Uri(CryptoPayTestHelper.ApiUrl),
+        DefaultRequestHeaders = { { "Crypto-Pay-API-Token", CryptoPayTestHelper.Token } }
+    });
 
     #endregion
 
@@ -65,7 +67,6 @@ public class AvailableMethodsTests
             Assert.NotNull(application);
             Assert.NotEmpty(application.Name);
             Assert.NotEmpty(application.PaymentProcessingBotUsername);
-            Assert.Equal(localCryptoPayClient.AppId, application.AppId);
         }
         catch (ArgumentNullException argumentNullException)
         {
@@ -102,6 +103,8 @@ public class AvailableMethodsTests
             Assert.NotNull(invoice);
             Assert.NotNull(invoice.PayUrl);
             Assert.NotNull(invoice.Hash);
+            Assert.NotNull(invoice.MiniAppInvoiceUrl);
+            Assert.NotNull(invoice.WebAppInvoiceUrl);
             Assert.Equal(invoiceRequest.Amount, invoice.Amount);
             Assert.Equal(invoiceRequest.CurrencyType, invoice.CurrencyType);
             Assert.Equal(invoiceRequest.Asset, invoice.Asset);
@@ -284,6 +287,8 @@ public class AvailableMethodsTests
             var check = await this.cryptoPayClient.CreateCheckAsync(
                 createCheckRequest.Asset,
                 createCheckRequest.Amount,
+                createCheckRequest.PinToUserId,
+                createCheckRequest.PinToUsername,
                 this.cancellationToken);
 
             Assert.NotNull(check);
@@ -306,6 +311,8 @@ public class AvailableMethodsTests
             var check = await this.cryptoPayClient.CreateCheckAsync(
                 createCheckRequest.Asset,
                 createCheckRequest.Amount,
+                createCheckRequest.PinToUserId,
+                createCheckRequest.PinToUsername,
                 this.cancellationToken);
 
             var deleted = await this.cryptoPayClient.DeleteCheckAsync(check.CheckId, this.cancellationToken);
@@ -327,6 +334,8 @@ public class AvailableMethodsTests
             var check = await this.cryptoPayClient.CreateCheckAsync(
                 createCheckRequest.Asset,
                 createCheckRequest.Amount,
+                createCheckRequest.PinToUserId,
+                createCheckRequest.PinToUsername,
                 this.cancellationToken);
 
             var checks = await this.cryptoPayClient.GetChecksAsync(cancellationToken: this.cancellationToken);
@@ -334,6 +343,27 @@ public class AvailableMethodsTests
             Assert.NotNull(check);
             Assert.NotNull(checks);
             Assert.True(checks.Items.Any());
+        }
+        catch (RequestException requestException)
+        {
+            AssertException(requestException, statusCode, error);
+        }
+    }
+
+    [Theory]
+    [ClassData(typeof(GetStatsData))]
+    public async Task GetStatsTest(HttpStatusCode statusCode, Error error, GetStatsRequest getStatsRequest)
+    {
+        try
+        {
+            var stats = await this.cryptoPayClient.GetStatsAsync(
+                getStatsRequest.StartAt,
+                getStatsRequest.EndAt,
+                this.cancellationToken);
+
+            Assert.NotNull(stats);
+            Assert.True(getStatsRequest.StartAt.IsCloseTo(stats.StartAt, TimeSpan.FromMilliseconds(100)));
+            Assert.True(getStatsRequest.EndAt.IsCloseTo(stats.EndAt, TimeSpan.FromMilliseconds(100)));
         }
         catch (RequestException requestException)
         {

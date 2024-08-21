@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CryptoPay.Exceptions;
@@ -83,7 +84,7 @@ public static class CryptoPayExtensions
                     paidBtnUrl,
                     payload,
                     allowComments,
-                    allowAnonymous, 
+                    allowAnonymous,
                     expiresIn),
                 cancellationToken)
             .ConfigureAwait(false);
@@ -256,16 +257,20 @@ public static class CryptoPayExtensions
     /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
     /// </param>
     /// <param name="amount">Amount of the invoice in float. For example: 125.50</param>
+    /// <param name="pinToUsername"></param>
     /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <param name="pinToUserId"></param>
     /// <returns><see cref="Check"/>On success, returns an <see cref="Check"/> of the created.</returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<Check> CreateCheckAsync(
         this ICryptoPayClient cryptoPayClientClient,
         string asset,
         double amount,
+        long? pinToUserId = default,
+        string pinToUsername = default,
         CancellationToken cancellationToken = default) =>
         await cryptoPayClientClient
-            .MakeRequestAsync(new CreateCheckRequest(asset, amount),
+            .MakeRequestAsync(new CreateCheckRequest(asset, amount, pinToUserId, pinToUsername),
                 cancellationToken)
             .ConfigureAwait(false);
 
@@ -315,6 +320,27 @@ public static class CryptoPayExtensions
                     status,
                     offset,
                     count),
+                cancellationToken)
+            .ConfigureAwait(false);
+
+    /// <summary>
+    /// Use this method to get app statistics. On success, returns <see cref="AppStats"/>.
+    /// </summary>
+    /// <param name="cryptoPayClientClient"><see cref="CryptoPayClient"/></param>
+    /// <param name="startAt">Optional. Date from which start calculating statistics. Defaults is current date minus 24 hours.</param>
+    /// <param name="endAt">Optional. The date on which to finish calculating statistics in ISO 8601 format. Defaults is current date.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>On success, returns <see cref="AppStats"/></returns>
+    /// <exception cref="RequestException">This exception can be thrown.</exception>
+    public static async Task<AppStats> GetStatsAsync(
+        this ICryptoPayClient cryptoPayClientClient,
+        DateTime? startAt = default,
+        DateTime? endAt = default,
+        CancellationToken cancellationToken = default) =>
+        await cryptoPayClientClient
+            .MakeRequestAsync(new GetStatsRequest(
+                    startAt,
+                    endAt),
                 cancellationToken)
             .ConfigureAwait(false);
 }

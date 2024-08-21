@@ -4,11 +4,11 @@ using Xunit;
 
 namespace CryptoPay.Tests.TestData;
 
-public class CryptoPayClientData : TheoryData<HttpStatusCode?, Error?, string, string>
+public class CryptoPayClientData : TheoryData<HttpStatusCode?, Error?, string?, string?>
 {
     public CryptoPayClientData()
     {
-        this.Add(default, default, string.Empty, string.Empty);
+        this.Add(default, default, default, default);
         this.Add(default, default, CryptoPayTestHelper.Token, CryptoPayTestHelper.ApiUrl);
         this.Add(
             HttpStatusCode.Unauthorized,
