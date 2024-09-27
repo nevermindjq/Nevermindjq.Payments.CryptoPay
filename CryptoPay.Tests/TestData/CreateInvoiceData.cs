@@ -76,6 +76,19 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 false,
                 360)
         );
+        
+        this.Add(
+            default,
+            default,
+            new CreateInvoiceRequest(
+                1.23,
+                CurrencyTypes.fiat,
+                default,
+                Assets.EUR.ToString(),
+                new []{ Assets.TON.ToString(), Assets.USDT.ToString() },
+                "description",
+                "hiddenMessage")
+        );
 
         this.Add(
             HttpStatusCode.BadRequest,

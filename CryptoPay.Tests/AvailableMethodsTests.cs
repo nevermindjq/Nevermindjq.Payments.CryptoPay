@@ -110,7 +110,6 @@ public class AvailableMethodsTests
             Assert.Equal(invoiceRequest.Asset, invoice.Asset);
             Assert.Equal(AssetsHelper.TryParse(invoiceRequest.Asset), AssetsHelper.TryParse(invoice.Asset));
             Assert.Equal(invoiceRequest.Fiat, invoice.Fiat);
-            // Assert.Equal(invoiceRequest.AcceptedAssets, invoice.AcceptedAssets);
             Assert.Equal(invoiceRequest.Description, invoice.Description);
             Assert.Equal(invoiceRequest.HiddenMessage, invoice.HiddenMessage);
             Assert.Equal(invoiceRequest.PaidBtnName, invoice.PaidBtnName);
@@ -119,6 +118,12 @@ public class AvailableMethodsTests
             Assert.Equal(invoiceRequest.AllowComments!.Value, invoice.AllowComments);
             Assert.Equal(invoiceRequest.AllowAnonymous!.Value, invoice.AllowAnonymous);
             Assert.Equal(invoice.CreatedAt.AddSeconds(invoiceRequest.ExpiresIn).ToString("g"), invoice.ExpirationDate?.ToString("g"));
+            
+            if (invoiceRequest.CurrencyType == CurrencyTypes.fiat) 
+            {
+                if (invoiceRequest.AcceptedAssets is null) Assert.NotEmpty(invoice.AcceptedAssets);
+                else Assert.Equal(invoiceRequest.AcceptedAssets, invoice.AcceptedAssets);
+            }
         }
         catch (RequestException requestException)
         {
