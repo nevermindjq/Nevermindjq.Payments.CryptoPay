@@ -55,7 +55,7 @@ public sealed class Check
     /// <summary>
     /// Date the check was activated in ISO 8601 format.
     /// </summary>
-    public DateTime ActivatedAt { get; set; }
+    public DateTime? ActivatedAt { get; set; }
 
     #endregion
 }

@@ -118,11 +118,17 @@ public class AvailableMethodsTests
             Assert.Equal(invoiceRequest.AllowComments!.Value, invoice.AllowComments);
             Assert.Equal(invoiceRequest.AllowAnonymous!.Value, invoice.AllowAnonymous);
             Assert.Equal(invoice.CreatedAt.AddSeconds(invoiceRequest.ExpiresIn).ToString("g"), invoice.ExpirationDate?.ToString("g"));
-            
-            if (invoiceRequest.CurrencyType == CurrencyTypes.fiat) 
+
+            if (invoiceRequest.CurrencyType == CurrencyTypes.fiat)
             {
-                if (invoiceRequest.AcceptedAssets is null) Assert.NotEmpty(invoice.AcceptedAssets);
-                else Assert.Equal(invoiceRequest.AcceptedAssets, invoice.AcceptedAssets);
+                if (invoiceRequest.AcceptedAssets is null)
+                {
+                    Assert.NotEmpty(invoice.AcceptedAssets);
+                }
+                else
+                {
+                    Assert.Equal(invoiceRequest.AcceptedAssets, invoice.AcceptedAssets);
+                }
             }
         }
         catch (RequestException requestException)
@@ -343,9 +349,14 @@ public class AvailableMethodsTests
                 createCheckRequest.PinToUsername,
                 this.cancellationToken);
 
-            var checks = await this.cryptoPayClient.GetChecksAsync(cancellationToken: this.cancellationToken);
-
             Assert.NotNull(check);
+
+            var assets = new[] { check.Asset, Enum.GetName(Assets.BTC) };
+            var checks = await this.cryptoPayClient.GetChecksAsync(
+                assets,
+                [check.CheckId],
+                cancellationToken: this.cancellationToken);
+
             Assert.NotNull(checks);
             Assert.True(checks.Items.Any());
         }

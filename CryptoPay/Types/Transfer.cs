@@ -12,6 +12,11 @@ public sealed class Transfer : ITransfer
     [JsonRequired]
     public long TransferId { get; set; }
 
+    /// <summary>
+    /// Optional. Unique UTF-8 string. 
+    /// </summary>
+    public string SpendId { get; set; }
+
     /// <inheritdoc/>
     [JsonRequired]
     public long UserId { get; set; }
