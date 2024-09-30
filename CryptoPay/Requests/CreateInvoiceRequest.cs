@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using CryptoPay.Converters;
 using CryptoPay.Requests.Base;
 using CryptoPay.Types;
 
@@ -107,6 +108,7 @@ public sealed class CreateInvoiceRequest
     public CurrencyTypes CurrencyType { get; set; }
 
     /// <inheritdoc />
+    [JsonConverter(typeof(ArrayToStringConverter))]
     public IEnumerable<string> AcceptedAssets { get; set; }
 
     /// <summary>
