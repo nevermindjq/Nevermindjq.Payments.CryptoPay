@@ -14,7 +14,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             default,
             new CreateInvoiceRequest(
                 5.105,
-                asset: Assets.TON.ToString())
+                asset: "TON")
         );
         this.Add(
             default,
@@ -22,14 +22,14 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new CreateInvoiceRequest(
                 1.105,
                 CurrencyTypes.fiat,
-                fiat: Assets.USD.ToString())
+                fiat: "USD")
         );
         this.Add(
             default,
             default,
             new CreateInvoiceRequest(
                 5.105,
-                asset: Assets.TON.ToString(),
+                asset: "TON",
                 description: "description",
                 hiddenMessage: "hiddenMessage",
                 paidBtnName: PaidButtonNames.callback,
@@ -46,7 +46,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 2.35,
                 CurrencyTypes.fiat,
                 default,
-                Assets.EUR.ToString(),
+                "EUR",
                 default,
                 "description",
                 "hiddenMessage",
@@ -64,7 +64,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new CreateInvoiceRequest(
                 0.0234,
                 CurrencyTypes.crypto,
-                Assets.BNB.ToString(),
+                "BNB",
                 default,
                 default,
                 "description",
@@ -76,7 +76,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 false,
                 360)
         );
-        
+
         this.Add(
             default,
             default,
@@ -84,8 +84,8 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 1.23,
                 CurrencyTypes.fiat,
                 default,
-                Assets.EUR.ToString(),
-                new []{ Assets.TON.ToString(), Assets.USDT.ToString() },
+                "EUR",
+                new []{ "TON", "USDT" },
                 "description",
                 "hiddenMessage")
         );
@@ -95,7 +95,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new Error(400, "PAID_BTN_URL_REQUIRED"),
             new CreateInvoiceRequest(
                 0.105,
-                asset: Assets.TON.ToString(),
+                asset: "TON",
                 paidBtnName: PaidButtonNames.callback)
         );
         this.Add(

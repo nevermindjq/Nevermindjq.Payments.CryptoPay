@@ -34,8 +34,8 @@ public class GetInvoicesData
             default,
             new List<string>
             {
-                Assets.TON.ToString(),
-                Assets.BNB.ToString()
+                "TON",
+                "BNB"
             },
             default,
             Statuses.active,

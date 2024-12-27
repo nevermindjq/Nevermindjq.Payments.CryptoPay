@@ -14,7 +14,7 @@ public sealed class DeleteInvoicesData : TheoryData<HttpStatusCode, Error?, Crea
             default,
             new CreateInvoiceRequest(
                 5.105,
-                asset: Assets.TON.ToString(),
+                asset: "TON",
                 description: "description",
                 hiddenMessage: "hiddenMessage",
                 paidBtnName: PaidButtonNames.callback,
@@ -31,7 +31,7 @@ public sealed class DeleteInvoicesData : TheoryData<HttpStatusCode, Error?, Crea
                 2.35,
                 currencyType: CurrencyTypes.fiat,
                 asset: default,
-                fiat: Assets.EUR.ToString(),
+                fiat: "EUR",
                 acceptedAssets: default,
                 description: "description",
                 hiddenMessage: "hiddenMessage",

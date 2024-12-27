@@ -11,7 +11,7 @@ public sealed class Balance
     /// Current currency.
     /// </summary>
     [JsonRequired]
-    public Assets CurrencyCode { get; set; }
+    public string CurrencyCode { get; set; }
 
     /// <summary>
     /// Number of available coins.
