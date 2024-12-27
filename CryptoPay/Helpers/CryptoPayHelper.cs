@@ -12,9 +12,9 @@ namespace CryptoPay;
 public static class CryptoPayHelper
 {
     /// <summary>
-    /// This method verify the integrity of the received data.
+    /// This method verifies the integrity of the received data.
     /// </summary>
-    /// <param name="signature">Sting from header parameter <c>crypto-pay-api-signature</c>.</param>
+    /// <param name="signature">String from header parameter<c>crypto-pay-api-signature</c>.</param>
     /// <param name="token">Your application token from CryptoPay.</param>
     /// <param name="body">Response <see cref="Update">body</see>.</param>
     /// <returns><c>true</c> if the header parameter crypto-pay-api-signature equals hash of request body.</returns>
@@ -29,6 +29,26 @@ public static class CryptoPayHelper
         using var hmac = new HMACSHA256(secret);
         var checkString = Encoding.UTF8.GetBytes(body.ToString());
         var hash = hmac.ComputeHash(checkString);
+        var hashHex = Convert.ToHexString(hash).ToLower();
+
+        return hashHex == signature;
+    }
+
+    /// <summary>
+    /// This method verifies the integrity of the received data.
+    /// </summary>
+    /// <param name="signature">String from header parameter<c>crypto-pay-api-signature</c>.</param>
+    /// <param name="token">Your application token from CryptoPay.</param>
+    /// <param name="body">Response</param>
+    /// <returns><c>true</c> if the header parameter crypto-pay-api-signature equals hash of request body.</returns>
+    public static bool CheckSignature(
+        string signature,
+        string token,
+        byte[] body)
+    {
+        using HMACSHA256 hmac = new HMACSHA256(SHA256.HashData(Encoding.UTF8.GetBytes(token)));
+
+        var hash = hmac.ComputeHash(body);
         var hashHex = Convert.ToHexString(hash).ToLower();
 
         return hashHex == signature;
