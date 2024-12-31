@@ -18,7 +18,7 @@ public sealed class GetTransfersData : TheoryData<HttpStatusCode, Error?, Transf
             default,
             new TransferRequest(
                 CryptoPayTestHelper.UserId,
-                Assets.BNB.ToString(),
+                "BNB",
                 0.0123,
                 Guid.NewGuid().ToString(),
                 disableSendNotification: true)

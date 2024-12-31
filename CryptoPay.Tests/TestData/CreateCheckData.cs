@@ -16,7 +16,7 @@ public sealed class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateC
             default,
             default,
             new CreateCheckRequest(
-                Assets.BNB.ToString(),
+                "BNB",
                 0.0123,
                 default,
                 default));
@@ -25,7 +25,7 @@ public sealed class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateC
             default,
             default,
             new CreateCheckRequest(
-                Assets.BNB.ToString(),
+                "BNB",
                 0.0121,
                 CryptoPayTestHelper.UserId,
                 default)
@@ -35,7 +35,7 @@ public sealed class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateC
             default,
             default,
             new CreateCheckRequest(
-                Assets.BNB.ToString(),
+                "BNB",
                 0.0122,
                 default,
                 "@userName")
@@ -45,7 +45,7 @@ public sealed class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateC
             HttpStatusCode.BadRequest,
             new Error(400, "NOT_ENOUGH_COINS"),
             new CreateCheckRequest(
-                Assets.TON.ToString(),
+                "TON",
                 100.2345,
                 default,
                 default));
