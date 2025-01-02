@@ -7,7 +7,7 @@ namespace CryptoPay.Types;
 /// <summary>
 /// All requests from Crypto Pay API has this JSON object.
 /// <para/>
-/// You can verify use method <see cref="CryptoPayHelper.CheckSignature" /> the received update and the integrity of the received data by comparing the header parameter crypto-pay-api-signature
+/// You can verify use method <see cref="CryptoPayHelper.CheckSignature(string, string, byte[])" /> the received update and the integrity of the received data by comparing the header parameter crypto-pay-api-signature
 /// and the hexadecimal representation of HMAC-SHA-256 signature used to sign the entire request body (unparsed JSON string)
 /// with a secret key that is SHA256 hash of your app's token.
 /// </summary>

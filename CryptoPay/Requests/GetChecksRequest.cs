@@ -14,7 +14,7 @@ public sealed class GetChecksRequest : ParameterlessRequest<Checks>
     /// <summary>
     /// Initializes a new request to get list of <see cref="Check"/>
     /// </summary>
-    /// <param name="assets">Optional. Cryptocurrency alphabetic code. Supported assets: <see cref="Assets"/>. Defaults to all currencies.</param>
+    /// <param name="assets">Optional. Cryptocurrency alphabetic code. Defaults to all currencies.</param>
     /// <param name="checkIds">Optional. List of check IDs.</param>
     /// <param name="statuses">Optional. Status of check to be returned. Available statuses: <see cref="CheckStatus"/>. Defaults to all statuses.</param>
     /// <param name="offset">Optional. Offset needed to return a specific subset of check. Defaults to 0.</param>
@@ -39,7 +39,7 @@ public sealed class GetChecksRequest : ParameterlessRequest<Checks>
     #region Public Fields
 
     /// <summary>
-    /// Optional. Cryptocurrency alphabetic code. Supported crypto from <see cref="Assets"/>. Defaults to all currencies.
+    /// Optional. Cryptocurrency alphabetic code. Defaults to all currencies.
     /// </summary>
     public IEnumerable<string> Assets { get; private set; }
 

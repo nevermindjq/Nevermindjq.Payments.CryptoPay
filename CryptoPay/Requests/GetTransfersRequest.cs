@@ -15,7 +15,7 @@ public sealed class GetTransfersRequest : ParameterlessRequest<Transfers>
     /// Initializes a new request to get list of <see cref="Transfer"/>
     /// </summary>
     /// <param name="asset">Optional. Cryptocurrency alphabetic code. Defaults to all currencies.
-    ///     <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
+    ///     <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing assets becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
     /// </param>
     /// <param name="transferIds">Optional. List of transfer IDs.</param>
     /// <param name="spendId">Optional. Unique UTF-8 transfer string.</param>
@@ -41,7 +41,7 @@ public sealed class GetTransfersRequest : ParameterlessRequest<Transfers>
     #region Public Fields
 
     /// <summary>
-    /// Optional. Cryptocurrency alphabetic code. Supported crypto from <see cref="Asset"/>. Defaults to all currencies.
+    /// Optional. Cryptocurrency alphabetic code. Defaults to all currencies.
     /// </summary>
     public IEnumerable<string> Asset { get; private set; }
 

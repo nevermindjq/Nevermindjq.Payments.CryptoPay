@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <LangVersion>12</LangVersion>
+        <LangVersion>default</LangVersion>
         <Nullable>disable</Nullable>
-        <AssemblyVersion>1.5.0.0</AssemblyVersion>
-        <FileVersion>1.5.0.0</FileVersion>
-        <PackageVersion>1.5.0.0</PackageVersion>
+        <AssemblyVersion>1.5.0.1</AssemblyVersion>
+        <FileVersion>1.5.0.1</FileVersion>
+        <PackageVersion>1.5.0.1</PackageVersion>
         <Title>Crypto Pay Client</Title>
         <Authors>Alexander Shitov</Authors>
         <Description>Cryptocurrency payment system based on @cryptobot in Telegram</Description>
@@ -20,7 +20,7 @@
         <PackageProjectUrl>https://github.com/WinoGarcia/CryptoPay</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes></PackageReleaseNotes>
-        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
@@ -38,7 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="System.Text.Json" Version="8.0.4" />
+      <PackageReference Include="System.Text.Json" Version="9.0.0" />
     </ItemGroup>
 
 </Project>

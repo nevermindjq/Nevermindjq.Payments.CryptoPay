@@ -23,7 +23,7 @@ public sealed class Check
     public string Hash { get; set; }
 
     /// <summary>
-    /// Cryptocurrency alphabetic code. Currently, can be one of <see cref="Assets"/>.
+    /// Cryptocurrency alphabetic code. Currently, can be one of assets.
     /// </summary>
     [JsonRequired]
     public string Asset { get; set; }

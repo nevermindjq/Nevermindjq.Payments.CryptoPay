@@ -18,20 +18,18 @@ public static class CryptoPayHelper
     /// <param name="token">Your application token from CryptoPay.</param>
     /// <param name="body">Response <see cref="Update">body</see>.</param>
     /// <returns><c>true</c> if the header parameter crypto-pay-api-signature equals hash of request body.</returns>
+    [Obsolete ("Use CheckSignature(string, string, byte[]). For more information, visit https://github.com/WinoGarcia/CryptoPay/pull/21")]
     public static bool CheckSignature(
         string signature,
         string token,
         Update body)
     {
-        using var sha256Hash = SHA256.Create();
-        var secret = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(token));
+        using var hmac = new HMACSHA256(SHA256.HashData(Encoding.UTF8.GetBytes(token)));
+        
+        var hashBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(body.ToString()));
+        var signatureBytes = Convert.FromHexString(signature);
 
-        using var hmac = new HMACSHA256(secret);
-        var checkString = Encoding.UTF8.GetBytes(body.ToString());
-        var hash = hmac.ComputeHash(checkString);
-        var hashHex = Convert.ToHexString(hash).ToLower();
-
-        return hashHex == signature;
+        return CryptographicOperations.FixedTimeEquals(hashBytes, signatureBytes);
     }
 
     /// <summary>
@@ -46,11 +44,11 @@ public static class CryptoPayHelper
         string token,
         byte[] body)
     {
-        using HMACSHA256 hmac = new HMACSHA256(SHA256.HashData(Encoding.UTF8.GetBytes(token)));
+        using var hmac = new HMACSHA256(SHA256.HashData(Encoding.UTF8.GetBytes(token)));
 
-        var hash = hmac.ComputeHash(body);
-        var hashHex = Convert.ToHexString(hash).ToLower();
+        var hashBytes = hmac.ComputeHash(body);
+        var signatureBytes = Convert.FromHexString(signature);
 
-        return hashHex == signature;
+        return CryptographicOperations.FixedTimeEquals(hashBytes, signatureBytes);
     }
 }

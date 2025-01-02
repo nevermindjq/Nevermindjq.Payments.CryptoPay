@@ -15,7 +15,7 @@ internal sealed class GetInvoicesRequest : ParameterlessRequest<Invoices>
     /// <summary>
     /// Initializes a new request to get <see cref="Invoices"/>
     /// </summary>
-    /// <param name="assets">Optional. Currency codes. Supported assets: <see cref="Assets" /></param>
+    /// <param name="assets">Optional. Currency codes.</param>
     /// <param name="invoiceIds">Optional. Invoice IDs.</param>
     /// <param name="status">Optional. Status of invoices to be returned. Available statuses: <see cref="Statuses.active"/> and <see cref="Statuses.paid"/>. Defaults to all statuses.</param>
     /// <param name="offset">Optional. Offset needed to return a specific subset of invoices. Default is 0.</param>
@@ -39,7 +39,6 @@ internal sealed class GetInvoicesRequest : ParameterlessRequest<Invoices>
 
     /// <summary>
     /// Optional. Currency codes.
-    /// Supported assets: <see cref="Assets"/>.
     /// Defaults to all assets.
     /// </summary>
     public IEnumerable<string> Assets { get; set; }

@@ -3,7 +3,7 @@
 namespace CryptoPay.Types;
 
 /// <summary>
-/// Supported currencies.
+/// Currencies.
 /// </summary>
 public sealed class Currency
 {

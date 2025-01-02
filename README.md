@@ -66,17 +66,25 @@ If you'd like to make sure that the Webhook request comes from Crypto Pay, we re
 
 Example endpoint. You should use `CryptoPayHelper.CheckSignature(...)` to check `signature` from `crypto-pay-api-signature`
 ```csharp
-[HttpPost("{token}")]
-public async Task<IActionResult> PostAsync(
-    [FromBody] Update update, 
-    string token, 
-    CancellationToken cancellationToken = default)
+[HttpPost]
+public async Task<IActionResult> PostAsync(CancellationToken cancellationToken = default)
 {
-    if (update is not null &&
-        this.HttpContext.Request.Headers.TryGetValue("crypto-pay-api-signature", out var signature) &&
-        CryptoPayHelper.CheckSignature(signature, token, update) &&
-        update.UpdateType == UpdateTypes.invoice_paid)
+    var updateBodyBytes = new byte[this.HttpContext.Request.ContentLength!.Value];
+    await this.HttpContext.Request.Body.ReadExactlyAsync(updateBodyBytes, cancellationToken);
+
+    var update = JsonSerializer.Deserialize<Update>(updateBodyBytes, new JsonSerializerOptions()
     {
+        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString
+    });
+
+    if (update is not null &&
+        update.UpdateType == UpdateTypes.invoice_paid &&
+        this.HttpContext.Request.Headers.TryGetValue("crypto-pay-api-signature", out var signature) &&
+        CryptoPayHelper.CheckSignature(signature, cryptoPayApiToken, updateBodyBytes))
+    {
+        // Here your processing of successful payment
         return this.Ok();
     }
 

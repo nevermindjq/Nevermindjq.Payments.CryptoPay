@@ -21,12 +21,12 @@ public sealed class CreateInvoiceRequest
     /// <param name="amount">Amount of the invoice in float. For example: 125.50</param>
     /// <param name="currencyType">Optional. Type of the price, can be <see cref="CurrencyTypes.crypto"/> or <see cref="CurrencyTypes.fiat"/>. Defaults to crypto.</param>
     /// <param name="asset">Currency code.
-    /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
+    /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing assets becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
     /// </param>
-    /// <param name="fiat">Optional. Required if currencyType is <see cref="CurrencyTypes.fiat"/>. Fiat currency code. Supported fiat currencies from <see cref="Assets"/></param>
+    /// <param name="fiat">Optional. Required if currencyType is <see cref="CurrencyTypes.fiat"/>. Fiat currency code.</param>
     /// <param name="acceptedAssets">
     /// Optional. List of cryptocurrency alphabetic codes. Assets which can be used to pay the invoice.
-    /// Available only if currencyType is <see cref="CurrencyTypes.fiat"/>. Supported assets from <see cref="Assets"/>.
+    /// Available only if currencyType is <see cref="CurrencyTypes.fiat"/>.
     /// Defaults to all currencies.
     /// </param>
     /// <param name="description">Optional. Description for the invoice. User will see this description when they pay the invoice. Up to 1024 characters.</param>

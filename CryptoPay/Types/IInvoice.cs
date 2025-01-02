@@ -8,7 +8,7 @@ namespace CryptoPay.Types;
 public interface IInvoice
 {
     /// <summary>
-    /// Currency code. Currently, can be one of <see cref="Assets" />.
+    /// Currency code. Currently, can be one of assets.
     /// </summary>
     public string Asset { get; set; }
 
@@ -60,7 +60,7 @@ public interface IInvoice
     /// <summary>
     /// Optional. List of assets which can be used to pay the invoice.
     /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/>.
-    /// Currently, can be one of crypto from <see cref="Assets"/>.
+    /// Currently, can be one of crypto from assets.
     /// </summary>
     public IEnumerable<string> AcceptedAssets { get; set; }
 }

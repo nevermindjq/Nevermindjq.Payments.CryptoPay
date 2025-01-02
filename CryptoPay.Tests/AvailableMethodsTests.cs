@@ -47,7 +47,7 @@ public class AvailableMethodsTests
     /// <see cref="CryptoPayTestHelper.Token" />
     /// <see cref="CryptoPayTestHelper.ApiUrl" />
     /// <see cref="CryptoPayTestHelper.UserId" />
-    /// For test <see cref="TransferTest"/>, you must have test <see cref="Assets.TON"/>> coins in you application wallet.
+    /// For test <see cref="TransferTest"/>, you must have test TON coins in you application wallet.
 
     #region Tests
 

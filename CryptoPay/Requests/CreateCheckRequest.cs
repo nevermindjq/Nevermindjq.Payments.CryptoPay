@@ -15,7 +15,7 @@ public sealed class CreateCheckRequest : ParameterlessRequest<Check>
     /// Initializes a new request to create <see cref="Check"/>
     /// </summary>
     /// <param name="asset">Cryptocurrency alphabetic code.
-    /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
+    /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing assets becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
     /// </param>
     /// <param name="amount">Amount of the invoice in float. For example: 125.50</param>
     /// <param name="pinToUserId">Optional. ID of the user who will be able to activate the check.</param>
@@ -38,7 +38,7 @@ public sealed class CreateCheckRequest : ParameterlessRequest<Check>
     #region Public Fields
 
     /// <summary>
-    /// Cryptocurrency alphabetic code. Supported <see cref="Assets"/>.
+    /// Cryptocurrency alphabetic code.
     /// </summary>
     [JsonRequired]
     public string Asset { get; set; }

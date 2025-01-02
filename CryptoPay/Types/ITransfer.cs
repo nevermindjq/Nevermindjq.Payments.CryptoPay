@@ -11,7 +11,7 @@ public interface ITransfer
     public long UserId { get; set; }
 
     /// <summary>
-    /// Currency code. Currently, can be <see cref="Assets"/>.
+    /// Currency code. Currently, can be assets.
     /// </summary>
     public string Asset { get; set; }
 
