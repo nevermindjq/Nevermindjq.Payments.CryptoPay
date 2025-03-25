@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 
 using Nevermindjq.Payments.CryptoPay.Exceptions;
-using Nevermindjq.Payments.CryptoPay.Extensions;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 namespace Nevermindjq.Payments.CryptoPay.Services.Abstractions;
@@ -16,7 +15,7 @@ public interface ICryptoPayClient {
 	/// <summary>
 	///     Make Request to CryptoPay service.
 	/// </summary>
-	/// <param name="request">Type of request <see cref="IRequest" /></param>
+	/// <param name="api_request">Type of request <see cref="IRequest" /></param>
 	/// <param name="cancellationToken">
 	///     A cancellation token that can be used by other objects or threads to receive notice of
 	///     cancellation.
@@ -24,5 +23,5 @@ public interface ICryptoPayClient {
 	/// <typeparam name="TResponse">Type of response see child of <see cref="ParameterlessRequest{TResult}" /></typeparam>
 	/// <returns>Instance type of TResponse</returns>
 	/// <exception cref="RequestException">This exception can be thrown.</exception>
-	Task<TResponse> MakeRequestAsync<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default);
+	Task<TResponse> MakeRequestAsync<TResponse>(IRequest<TResponse> api_request, CancellationToken cancellationToken = default);
 }
