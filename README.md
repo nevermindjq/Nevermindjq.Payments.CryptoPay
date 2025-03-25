@@ -3,9 +3,11 @@
 [![NuGet downloads](https://img.shields.io/nuget/dt/CryptoPay.svg?label=Downloads&style=flat-square&color=orange)](https://www.nuget.org/packages/CryptoPay)
 [![Bot API Version](https://img.shields.io/badge/CryptoPay%20API-1.5%20(September%2011,%202024)-f36caf.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
 [![documentations](https://img.shields.io/badge/Documentations-Book-Green.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
+
 # .NET Client for CryptoPay by [@CryptoBot](https://t.me/CryptoBot)
 
-**[Crypto Pay](https://t.me/CryptoBot/?start=pay)** is a payment system based on [@CryptoBot](https://t.me/CryptoBot), which allows you to accept payments in cryptocurrency using the API.
+**[Crypto Pay](https://t.me/CryptoBot/?start=pay)** is a payment system based on [@CryptoBot](https://t.me/CryptoBot),
+which allows you to accept payments in cryptocurrency using the API.
 
 This **.NET** library help you to work with **Crypto Pay** via [Crypto Pay API](https://help.crypt.bot/crypto-pay-api).
 
@@ -17,7 +19,9 @@ Use the [nuget package](https://www.nuget.org/packages/CryptoPay/).
 
 ### API
 
-First, you need to create your application and get an API token. Open [@CryptoBot](https://t.me/CryptoBot?start=pay) or [@CryptoTestnetBot](https://t.me/CryptoTestnetBot?start=pay) (for testnet), send a command `/pay` to create a new app and get API Token.
+First, you need to create your application and get an API token. Open [@CryptoBot](https://t.me/CryptoBot?start=pay)
+or [@CryptoTestnetBot](https://t.me/CryptoTestnetBot?start=pay) (for testnet), send a command `/pay` to create a new app
+and get API Token.
 
 Don't forget to configure the `ApiUrl` and your `CryptoPayApiToken`:
 
@@ -35,10 +39,10 @@ Next step: try to call a simple `GetMeAsync(...)` method to check that everythin
 var application = await cryptoPayClient.GetMeAsync(cancellationToken);
 ```
 
-Net     | Bot                                                          | Hostname
-------- |--------------------------------------------------------------|------------------------
-mainnet | [@CryptoBot](https://t.me/CryptoBot?start=pay)               | `https://pay.crypt.bot/`
-testnet | [@CryptoTestnetBot](https://t.me/CryptoTestnetBot?start=pay) | `https://testnet-pay.crypt.bot/`
+ Net     | Bot                                                          | Hostname                         
+---------|--------------------------------------------------------------|----------------------------------
+ mainnet | [@CryptoBot](https://t.me/CryptoBot?start=pay)               | `https://pay.crypt.bot/`         
+ testnet | [@CryptoTestnetBot](https://t.me/CryptoTestnetBot?start=pay) | `https://testnet-pay.crypt.bot/` 
 
 > All queries to the Crypto Pay API must be sent over **HTTPS**
 
@@ -60,11 +64,14 @@ var invoice = await cryptoPayClient.CreateInvoiceAsync(
 
 Use Webhooks to get updates for the app.
 
-If you'd like to make sure that the Webhook request comes from Crypto Pay, we recommend using a secret path in the URL, e.g. `https://www.example.com/<secret>`.
+If you'd like to make sure that the Webhook request comes from Crypto Pay, we recommend using a secret path in the URL,
+e.g. `https://www.example.com/<secret>`.
 
 > Webhooks will send may at least one time
 
-Example endpoint. You should use `CryptoPayHelper.CheckSignature(...)` to check `signature` from `crypto-pay-api-signature`
+Example endpoint. You should use `CryptoPayHelper.CheckSignature(...)` to check `signature` from
+`crypto-pay-api-signature`
+
 ```csharp
 [HttpPost]
 public async Task<IActionResult> PostAsync(CancellationToken cancellationToken = default)

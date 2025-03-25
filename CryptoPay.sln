@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoPay", "CryptoPay\CryptoPay.csproj", "{482A7B0E-EA2D-4D7B-867A-D1BEA03C5304}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nevermindjq.Payments.CryptoPay", "Nevermindjq.Payments.CryptoPay\Nevermindjq.Payments.CryptoPay.csproj", "{482A7B0E-EA2D-4D7B-867A-D1BEA03C5304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoPay.Tests", "CryptoPay.Tests\CryptoPay.Tests.csproj", "{D909A31C-9D48-47CD-8B85-F7C2307C4B98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests\Tests.csproj", "{D909A31C-9D48-47CD-8B85-F7C2307C4B98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D7A7AFF1-0C30-4588-B24F-3A4137C4D094}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,8 @@ Global
 		{D909A31C-9D48-47CD-8B85-F7C2307C4B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D909A31C-9D48-47CD-8B85-F7C2307C4B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D909A31C-9D48-47CD-8B85-F7C2307C4B98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D909A31C-9D48-47CD-8B85-F7C2307C4B98} = {D7A7AFF1-0C30-4588-B24F-3A4137C4D094}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,16 @@
-﻿.idea
-CryptoPay.Tests/bin
-CryptoPay.Tests/obj
-CryptoPay/bin
-CryptoPay/obj
-*.user
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+# Build
+bin/
+obj/
+
+# Project files
+*.Development.*
+
+# IDEA
+.idea
+*.DotSettings.*
+global.json
+*.http
