@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Nevermindjq.Payments.CryptoPay.Extensions;
+using Nevermindjq.Payments.CryptoPay.Helpers;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Responses;
 using Nevermindjq.Payments.CryptoPay.Services.Abstractions;
@@ -41,13 +41,14 @@ public sealed class CryptoPayClient : ICryptoPayClient {
 
 		// Response
 		using var response = await SendRequestAsync(request, cancellationToken).ConfigureAwait(false);
+		var content_stream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
 
 		// Process
-		if (!response.IsSuccessStatusCode && await response.DeserializeContentAsync<ApiResponseWithError>(cancellationToken).ConfigureAwait(false) is { Ok: false } error) {
+		if (!response.IsSuccessStatusCode && JsonHelper.Deserialize<ApiResponseWithError>(content_stream) is { Ok: false } error) {
 			throw new HttpRequestException($"{error.Error!.Name} {error.Error.Code}");
 		}
 
-		if (await response.DeserializeContentAsync<ApiResponse<TResponse>>(cancellationToken).ConfigureAwait(false) is { Ok: true } content) {
+		if (JsonHelper.Deserialize<ApiResponse<TResponse>>(content_stream) is { Ok: true } content) {
 			return content.Result!;
 		}
 

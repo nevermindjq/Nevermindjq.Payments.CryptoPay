@@ -6,8 +6,6 @@ using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
-using Newtonsoft.Json;
-
 #pragma warning disable CS8618
 #pragma warning disable CS8601
 
