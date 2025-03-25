@@ -1,4 +1,4 @@
-![CryptoPay](/header.png)
+![CryptoPay](/docs/assets/header.png)
 [![package](https://img.shields.io/nuget/vpre/CryptoPay.svg?label=CryptoPay%20Package&style=flat-square)](https://www.nuget.org/packages/CryptoPay)
 [![NuGet downloads](https://img.shields.io/nuget/dt/CryptoPay.svg?label=Downloads&style=flat-square&color=orange)](https://www.nuget.org/packages/CryptoPay)
 [![Bot API Version](https://img.shields.io/badge/CryptoPay%20API-1.5%20(September%2011,%202024)-f36caf.svg?style=flat-square)](https://help.crypt.bot/crypto-pay-api)
