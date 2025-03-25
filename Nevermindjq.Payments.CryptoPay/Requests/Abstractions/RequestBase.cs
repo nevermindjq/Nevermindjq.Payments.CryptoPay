@@ -1,7 +1,11 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+
+using Nevermindjq.Payments.CryptoPay.Converters;
+
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 namespace Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
@@ -11,13 +15,16 @@ public abstract class RequestBase<TResponse> : IRequest<TResponse> {
 
 	/// <inheritdoc />
 	public HttpContent ToHttpContent() {
-		var options = new JsonSerializerOptions {
-			PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
-			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-			NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString
-		};
-
-		var payload = JsonSerializer.Serialize(this, GetType(), options);
+		var payload = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
+			ContractResolver = new DefaultContractResolver {
+				NamingStrategy = new SnakeCaseNamingStrategy()
+			},
+			NullValueHandling = NullValueHandling.Ignore,
+			Converters = new List<JsonConverter> {
+				new StringEnumConverter(),
+				new NumberAsStringConverter()
+			}
+		});
 
 		return new StringContent(payload, Encoding.UTF8, "application/json");
 	}

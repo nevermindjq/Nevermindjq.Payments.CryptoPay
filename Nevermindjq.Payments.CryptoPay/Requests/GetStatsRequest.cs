@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Text.Json.Serialization;
+ 
 
 using Nevermindjq.Payments.CryptoPay.Models;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;

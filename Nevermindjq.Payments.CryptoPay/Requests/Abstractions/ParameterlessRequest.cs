@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
+using Nevermindjq.Payments.CryptoPay.Models;
 
 namespace Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 

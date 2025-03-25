@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+﻿ 
 
 namespace Nevermindjq.Payments.CryptoPay.Models;
 

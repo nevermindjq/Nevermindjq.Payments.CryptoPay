@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
-using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 
 namespace Nevermindjq.Payments.CryptoPay.Models;
@@ -45,5 +42,5 @@ public sealed class Update {
     ///     Serialize object to string.
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => JsonSerializer.Serialize(this);
+    public override string ToString() => JsonConvert.SerializeObject(this);
 }

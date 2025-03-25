@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Nevermindjq.Payments.CryptoPay.Converters;
 
@@ -11,11 +9,12 @@ namespace Nevermindjq.Payments.CryptoPay.Converters;
 /// </summary>
 public class ArrayToStringConverter : JsonConverter<IEnumerable<string>> {
 	/// <inheritdoc />
-	public override IEnumerable<string> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => JsonSerializer.Deserialize<List<string>>(ref reader, options);
+	public override void WriteJson(JsonWriter writer, IEnumerable<string>? value, JsonSerializer serializer) {
+		writer.WriteValue(string.Join(",", value));
+	}
 
 	/// <inheritdoc />
-	public override void Write(Utf8JsonWriter writer, IEnumerable<string> value, JsonSerializerOptions options) {
-		var joinedString = string.Join(",", value);
-		writer.WriteStringValue(joinedString);
+	public override IEnumerable<string>? ReadJson(JsonReader reader, Type objectType, IEnumerable<string>? existingValue, bool hasExistingValue, JsonSerializer serializer) {
+		return JsonSerializer.Create().Deserialize<List<string>>(reader);
 	}
 }

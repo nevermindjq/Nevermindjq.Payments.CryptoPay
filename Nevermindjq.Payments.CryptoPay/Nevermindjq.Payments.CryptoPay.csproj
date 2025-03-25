@@ -2,11 +2,13 @@
 
     <PropertyGroup>
         <LangVersion>default</LangVersion>
-        <Nullable>disable</Nullable>
+        <Nullable>enable</Nullable>
         <AssemblyVersion>1.5.0.1</AssemblyVersion>
         <FileVersion>1.5.0.1</FileVersion>
         <PackageVersion>1.5.0.1</PackageVersion>
         <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        
+        <NoWarn>CS1591;CS1591</NoWarn>
 
         <Title>Crypto Pay Client</Title>
         <Authors>Alexander Shitov</Authors>
@@ -35,9 +37,9 @@
             <Link>README.md</Link>
         </None>
     </ItemGroup>
-
+    
     <ItemGroup>
-        <PackageReference Include="System.Text.Json" Version="9.0.0"/>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

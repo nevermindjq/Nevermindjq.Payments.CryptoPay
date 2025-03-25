@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
+using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 
-namespace Nevermindjq.Payments.CryptoPay.Models.Abstractions;
+namespace Nevermindjq.Payments.CryptoPay.Models;
 
 /// <inheritdoc />
 public sealed class Invoice : IInvoice {
