@@ -20,7 +20,7 @@ public class ValidationMiddleware(IConfiguration config) : IMiddleware {
 
 		var update = JsonHelper.Deserialize<Update>(bytes);
 
-		context.Items.Add(typeof(Update), update);
+		context.Items.Add(nameof(Update), update);
 
 		if (update is { UpdateType: UpdateTypes.invoice_paid } && CryptoPayHelper.CheckSignature(context.Request.Headers, config["Payments:CryptoPay:Token"]!, bytes)) {
 			await next.Invoke(context);
