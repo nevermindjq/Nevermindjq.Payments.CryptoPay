@@ -1,9 +1,10 @@
-﻿ 
-
-using Nevermindjq.Payments.CryptoPay.Models;
+﻿using Nevermindjq.Payments.CryptoPay.Models;
 using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
+
+#pragma warning disable CS8618
+#pragma warning disable CS8601
 
 namespace Nevermindjq.Payments.CryptoPay.Requests;
 
@@ -41,7 +42,7 @@ public sealed class TransferRequest : ParameterlessRequest<Transfer>, ITransfer 
     ///     Optional. Pass true if the user should not receive a notification about the
     ///     transfer. Default is <c>false</c>.
     /// </param>
-    public TransferRequest(long userId, string asset, double amount, string spendId, string comment = default, bool? disableSendNotification = default) : base("transfer") {
+    public TransferRequest(long userId, string asset, double amount, string spendId, string? comment = null, bool? disableSendNotification = null) : base("transfer") {
 		UserId = userId;
 		Asset = asset;
 		Amount = amount;

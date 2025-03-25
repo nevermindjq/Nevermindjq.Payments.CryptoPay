@@ -54,16 +54,20 @@ public sealed class RequestException : Exception {
     /// <summary>
     ///     Error from response.
     /// </summary>
-    public Error Error { get; }
+    public Error? Error { get; }
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	private static string PrepareErrorMessage(string message, Error error) {
-		if (error is null) {
+	private static string PrepareErrorMessage(string? message, Error? error) {
+		if (error is null && message is not null) {
 			return message;
 		}
 
-		var errorMessage = $"Code: {error.Code} Name: {error.Name}";
+		var error_message = $"Code: {error!.Code} Name: {error.Name}";
 
-		return message is null ? errorMessage : $"{message}{Environment.NewLine}{errorMessage}";
+		if (message is null) {
+			return error_message;
+		}
+
+		return $"{message}{Environment.NewLine}{error_message}";
 	}
 }

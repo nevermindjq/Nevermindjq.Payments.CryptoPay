@@ -10,6 +10,10 @@ namespace Nevermindjq.Payments.CryptoPay.Converters;
 public class ArrayToStringConverter : JsonConverter<IEnumerable<string>> {
 	/// <inheritdoc />
 	public override void WriteJson(JsonWriter writer, IEnumerable<string>? value, JsonSerializer serializer) {
+		if (value is null) {
+			return;
+		}
+
 		writer.WriteValue(string.Join(",", value));
 	}
 

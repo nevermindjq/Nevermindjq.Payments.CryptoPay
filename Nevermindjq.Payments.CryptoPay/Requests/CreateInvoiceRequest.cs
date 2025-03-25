@@ -8,6 +8,9 @@ using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 using Newtonsoft.Json;
 
+#pragma warning disable CS8618
+#pragma warning disable CS8601
+
 namespace Nevermindjq.Payments.CryptoPay.Requests;
 
 /// <summary>
@@ -64,7 +67,7 @@ public sealed class CreateInvoiceRequest : ParameterlessRequest<Invoice>, IInvoi
     ///     You can set a payment time limit for the invoice in <b>seconds</b>. Values between 1-2678400
     ///     are accepted.
     /// </param>
-    public CreateInvoiceRequest(double amount, CurrencyTypes currencyType = CurrencyTypes.crypto, string asset = default, string fiat = default, IEnumerable<string> acceptedAssets = default, string description = default, string hiddenMessage = default, PaidButtonNames? paidBtnName = default, string paidBtnUrl = default, string payload = default, bool allowComments = true, bool allowAnonymous = true, int expiresIn = 2678400) : base("createInvoice") {
+    public CreateInvoiceRequest(double amount, CurrencyTypes currencyType = CurrencyTypes.crypto, string? asset = null, string? fiat = null, IEnumerable<string>? acceptedAssets = null, string? description = null, string? hiddenMessage = null, PaidButtonNames? paidBtnName = null, string? paidBtnUrl = null, string? payload = null, bool allowComments = true, bool allowAnonymous = true, int expiresIn = 2678400) : base("createInvoice") {
 		CurrencyType = currencyType;
 		Amount = amount;
 		Asset = asset;

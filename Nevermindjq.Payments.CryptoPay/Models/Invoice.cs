@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 
+#pragma warning disable CS8618
+
 namespace Nevermindjq.Payments.CryptoPay.Models;
 
 /// <inheritdoc />

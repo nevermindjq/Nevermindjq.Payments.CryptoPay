@@ -5,6 +5,9 @@ using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
+#pragma warning disable CS8618
+#pragma warning disable CS8601
+
 namespace Nevermindjq.Payments.CryptoPay.Requests;
 
 /// <summary>
@@ -24,7 +27,7 @@ internal sealed class GetInvoicesRequest : ParameterlessRequest<Invoices> {
     /// </param>
     /// <param name="offset">Optional. Offset needed to return a specific subset of invoices. Default is 0.</param>
     /// <param name="count">Optional. Number of invoices to be returned. Values between 1-1000 are accepted. Defaults to 100.</param>
-    public GetInvoicesRequest(IEnumerable<string> assets = default, IEnumerable<long> invoiceIds = default, Statuses? status = default, int offset = 0, int count = 100) : base("getInvoices") {
+    public GetInvoicesRequest(IEnumerable<string>? assets = null, IEnumerable<long>? invoiceIds = null, Statuses? status = null, int offset = 0, int count = 100) : base("getInvoices") {
 		Assets = assets;
 		InvoiceIds = invoiceIds;
 		Status = status;

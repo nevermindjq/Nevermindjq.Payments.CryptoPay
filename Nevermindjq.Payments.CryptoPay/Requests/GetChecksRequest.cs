@@ -4,6 +4,9 @@ using Nevermindjq.Payments.CryptoPay.Models;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
+#pragma warning disable CS8618
+#pragma warning disable CS8601
+
 namespace Nevermindjq.Payments.CryptoPay.Requests;
 
 /// <summary>
@@ -23,7 +26,7 @@ public sealed class GetChecksRequest : ParameterlessRequest<Checks> {
     /// </param>
     /// <param name="offset">Optional. Offset needed to return a specific subset of check. Defaults to 0.</param>
     /// <param name="count">Optional. Number of check to be returned. Values between 1-1000 are accepted. Defaults to 100.</param>
-    public GetChecksRequest(IEnumerable<string> assets = default, IEnumerable<long> checkIds = default, IEnumerable<Statuses> statuses = default, int offset = 0, int count = 100) : base("getChecks") {
+    public GetChecksRequest(IEnumerable<string>? assets = null, IEnumerable<long>? checkIds = null, IEnumerable<Statuses>? statuses = null, int offset = 0, int count = 100) : base("getChecks") {
 		Assets = assets;
 		CheckIds = checkIds;
 		Statuses = statuses;

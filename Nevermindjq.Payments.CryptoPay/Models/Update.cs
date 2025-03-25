@@ -2,6 +2,8 @@
 
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 
+#pragma warning disable CS8618
+
 namespace Nevermindjq.Payments.CryptoPay.Models;
 
 /// <summary>
@@ -36,9 +38,9 @@ public sealed class Update {
     /// <summary>
     ///     Payload of the update.
     /// </summary>
-    public Invoice Payload { get; set; }
+	public Invoice Payload { get; set; }
 
-    /// <summary>
+	/// <summary>
     ///     Serialize object to string.
     /// </summary>
     /// <returns></returns>

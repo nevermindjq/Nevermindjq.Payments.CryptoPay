@@ -3,6 +3,8 @@
 
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 
+#pragma warning disable CS8618
+
 namespace Nevermindjq.Payments.CryptoPay.Models;
 
 /// <summary>

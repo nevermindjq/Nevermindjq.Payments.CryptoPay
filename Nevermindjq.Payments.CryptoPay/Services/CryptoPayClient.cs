@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +15,6 @@ namespace Nevermindjq.Payments.CryptoPay.Services;
 /// <inheritdoc />
 public sealed class CryptoPayClient : ICryptoPayClient {
 	private readonly HttpClient _http;
-	private static string _api_url { get; } = "https://pay.crypt.bot/";
 
 	/// <summary>
 	///     Create <see cref="ICryptoPayClient" /> instance.
@@ -26,25 +26,16 @@ public sealed class CryptoPayClient : ICryptoPayClient {
 	///     Test api url is <code>https://testnet-pay.crypt.bot/</code>.
 	/// </param>
 	/// <exception cref="ArgumentNullException">If token is null.</exception>
-	[Obsolete("Add this client using dependency injection. builder.Services.AddHttpClient<ICryptoPayClient, CryptoPayClient>(...) e.g.")]
 	public CryptoPayClient(string token, HttpClient? httpClient = null, string? apiUrl = null) {
 		_http = httpClient ?? new HttpClient();
-		_http.BaseAddress = new Uri(apiUrl ?? _api_url);
+		_http.BaseAddress = new Uri(apiUrl ?? "https://pay.crypt.bot/");
 		_http.DefaultRequestHeaders.Add("Crypto-Pay-API-Token", string.IsNullOrEmpty(token) ? throw new ArgumentNullException(nameof(token)) : token);
 	}
-
-	/// <summary>
-	///     Create <see cref="ICryptoPayClient" /> instance.
-	/// </summary>
-	/// <param name="http">
-	///     <see cref="HttpClient" />
-	/// </param>
-	public CryptoPayClient(HttpClient http) => _http = http;
 
 	/// <inheritdoc />
 	public async Task<TResponse> MakeRequestAsync<TResponse>(IRequest<TResponse> api_request, CancellationToken cancellationToken = default) {
 		// Request
-		using var request = new HttpRequestMessage(api_request.Method, Path.Combine(_http.BaseAddress.AbsolutePath, "api", api_request.MethodName)) {
+		using var request = new HttpRequestMessage(api_request.Method, Path.Combine(_http.BaseAddress!.AbsolutePath, "api", api_request.MethodName)) {
 			Content = api_request.ToHttpContent()
 		};
 
@@ -53,16 +44,17 @@ public sealed class CryptoPayClient : ICryptoPayClient {
 
 		// Process
 		if (!response.IsSuccessStatusCode && await response.DeserializeContentAsync<ApiResponseWithError>(cancellationToken).ConfigureAwait(false) is { Ok: false } error) {
-			throw new HttpRequestException($"{error.Error.Name} {error.Error.Code}");
+			throw new HttpRequestException($"{error.Error!.Name} {error.Error.Code}");
 		}
 
 		if (await response.DeserializeContentAsync<ApiResponse<TResponse>>(cancellationToken).ConfigureAwait(false) is { Ok: true } content) {
-			return content.Result;
+			return content.Result!;
 		}
 
 		throw new HttpRequestException($"Can't parse content of {nameof(ApiResponse<TResponse>)}");
 	}
 
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private async Task<HttpResponseMessage> SendRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken) {
 		try {
 			return await _http.SendAsync(httpRequest, cancellationToken).ConfigureAwait(false);

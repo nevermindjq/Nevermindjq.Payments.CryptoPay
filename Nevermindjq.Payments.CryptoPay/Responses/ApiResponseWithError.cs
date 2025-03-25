@@ -1,7 +1,7 @@
-﻿ 
-
-using Nevermindjq.Payments.CryptoPay.Models;
+﻿using Nevermindjq.Payments.CryptoPay.Models;
 using Nevermindjq.Payments.CryptoPay.Responses.Abstractions;
+
+#pragma warning disable CS8618
 
 namespace Nevermindjq.Payments.CryptoPay.Responses;
 
