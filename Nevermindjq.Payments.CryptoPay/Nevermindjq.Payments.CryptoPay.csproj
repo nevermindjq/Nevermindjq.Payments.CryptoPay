@@ -3,25 +3,24 @@
     <PropertyGroup>
         <LangVersion>default</LangVersion>
         <Nullable>enable</Nullable>
-        <AssemblyVersion>1.5.0.1</AssemblyVersion>
-        <FileVersion>1.5.0.1</FileVersion>
-        <PackageVersion>1.5.0.1</PackageVersion>
         <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         
         <NoWarn>CS1591;CS1591;CS1574</NoWarn>
 
+        <PackageVersion>2.0.0</PackageVersion>
         <Title>Crypto Pay Client</Title>
         <Authors>Alexander Shitov</Authors>
         <Description>Cryptocurrency payment system based on @cryptobot in Telegram</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageIcon>package-icon.png</PackageIcon>
-        <RepositoryUrl>https://github.com/WinoGarcia/CryptoPay.git</RepositoryUrl>
-        <PackageTags>CryptoPay;Api;CryptoBot;Telegram;Bot</PackageTags>
+        <PackageTags>Crypto;Payment System;Payments;CryptoPay;CryptoBot;CryptoPayBot;Telegram;API</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Copyright>Copyright © CryptoPay.NET 2024</Copyright>
-        <PackageProjectUrl>https://github.com/WinoGarcia/CryptoPay</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>Copyright © CryptoPay.NET 2024</Copyright>
+        
+        <RepositoryUrl>https://github.com/nevermindjq/Nevermindjq.Payments.CryptoPay.git</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/nevermindjq/Nevermindjq.Payments.CryptoPay</PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -41,7 +40,6 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
       <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
-      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
