@@ -6,4 +6,14 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Nevermindjq.Telegram.Bot" Version="1.3.6" />
+      <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.1-dev-02307" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="6.0.1-dev-00953" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Nevermindjq.Payments.CryptoPay\Nevermindjq.Payments.CryptoPay.csproj" />
+    </ItemGroup>
+
 </Project>

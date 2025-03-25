@@ -1,0 +1,1 @@
+global using Update = Telegram.Bot.Types.Update;
