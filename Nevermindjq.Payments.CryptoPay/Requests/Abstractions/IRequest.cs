@@ -9,10 +9,10 @@ public interface IRequest {
     /// <summary>
     ///     HTTP method of request.
     /// </summary>
-    HttpMethod Method { get; }
+    public HttpMethod Method { get; }
 
     /// <summary>
     ///     API method name.
     /// </summary>
-    string MethodName { get; }
+    public string MethodName { get; }
 }

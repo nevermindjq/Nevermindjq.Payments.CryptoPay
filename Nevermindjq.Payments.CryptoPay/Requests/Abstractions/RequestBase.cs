@@ -1,11 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-
-using Nevermindjq.Payments.CryptoPay.Converters;
-
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
+﻿using System.Net.Http;
 
 namespace Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 

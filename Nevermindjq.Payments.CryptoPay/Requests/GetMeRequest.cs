@@ -7,9 +7,4 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 ///     A simple method for testing your bot's auth token. Requires no parameters. Returns basic information
 ///     about the bot in form of a <see cref="CryptoPayApplication" /> object.
 /// </summary>
-internal sealed class GetMeRequest : RequestBase {
-	/// <summary>
-	///     Initializes a new request to get a <see cref="CryptoPayApplication" />
-	/// </summary>
-	public GetMeRequest() : base("getMe") { }
-}
+public sealed class GetMeRequest() : RequestBase("getMe");
