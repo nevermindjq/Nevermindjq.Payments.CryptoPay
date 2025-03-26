@@ -12,6 +12,8 @@ namespace Nevermindjq.Payments.CryptoPay.Middlewares;
 public class ValidationMiddleware(IConfiguration config) : IMiddleware {
 	public async Task InvokeAsync(HttpContext context, RequestDelegate next) {
 		if (context.Request.Path is not { HasValue: true, Value: var path } || !path.Contains("crypto-pay")) {
+			await next.Invoke(context);
+
 			return;
 		}
 
