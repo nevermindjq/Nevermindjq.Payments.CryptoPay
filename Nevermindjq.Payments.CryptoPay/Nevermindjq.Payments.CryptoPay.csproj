@@ -8,7 +8,7 @@
         
         <NoWarn>CS1591;CS1591;CS1574</NoWarn>
 
-        <PackageVersion>2.0.0</PackageVersion>
+        <PackageVersion>2.0.1</PackageVersion>
         <Title>Crypto Pay Client</Title>
         <Authors>Alexander Shitov, Nevermindjq</Authors>
         <Description>Cryptocurrency payment system based on @cryptobot in Telegram</Description>
