@@ -1,6 +1,6 @@
-﻿using Nevermindjq.Payments.CryptoPay.Models;
-using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+﻿using Nevermindjq.Payments.CryptoPay.Models.Transfers;
+using Nevermindjq.Payments.CryptoPay.Models.Transfers.Abstractions;
+using Nevermindjq.Payments.CryptoPay.Models.Transfers.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 #pragma warning disable CS8618
@@ -11,7 +11,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this class to get <see cref="Transfer" /> request.
 /// </summary>
-public sealed class TransferRequest : ParameterlessRequest<Transfer>, ITransfer {
+public sealed class TransferRequest : ParameterlessRequest, ITransfer {
     /// <summary>
     ///     Initializes a new request to get a <see cref="Transfer" />
     /// </summary>

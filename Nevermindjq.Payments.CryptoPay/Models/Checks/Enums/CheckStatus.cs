@@ -1,4 +1,4 @@
-﻿namespace Nevermindjq.Payments.CryptoPay.Models.Enums;
+﻿namespace Nevermindjq.Payments.CryptoPay.Models.Checks.Enums;
 
 #pragma warning disable CS1591
 

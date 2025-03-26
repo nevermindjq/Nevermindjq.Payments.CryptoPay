@@ -1,4 +1,4 @@
-﻿namespace Nevermindjq.Payments.CryptoPay.Models.Enums;
+﻿namespace Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 
 /// <summary>
 ///     Status of invoices to be returned.

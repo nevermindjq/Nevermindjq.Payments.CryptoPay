@@ -1,4 +1,4 @@
-﻿namespace Nevermindjq.Payments.CryptoPay.Models.Enums;
+﻿namespace Nevermindjq.Payments.CryptoPay.Models.Transfers.Enums;
 
 /// <summary>
 ///     Status of the transfer.

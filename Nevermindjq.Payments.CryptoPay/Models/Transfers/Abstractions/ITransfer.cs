@@ -1,6 +1,6 @@
 ﻿using Nevermindjq.Payments.CryptoPay.Extensions;
 
-namespace Nevermindjq.Payments.CryptoPay.Models.Abstractions;
+namespace Nevermindjq.Payments.CryptoPay.Models.Transfers.Abstractions;
 
 /// <summary>
 ///     Transfer. You can get invoice use <see cref="CryptoPayExtensions.TransferAsync" />

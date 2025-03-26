@@ -1,6 +1,4 @@
-﻿ 
-
-using Nevermindjq.Payments.CryptoPay.Models;
+﻿using Nevermindjq.Payments.CryptoPay.Models.Checks;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 namespace Nevermindjq.Payments.CryptoPay.Requests;
@@ -8,7 +6,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this method to create a new check. On success, returns an object of the created <see cref="Check" />.
 /// </summary>
-public sealed class CreateCheckRequest : ParameterlessRequest<Check> {
+public sealed class CreateCheckRequest : ParameterlessRequest {
 	#region Constructors
 
     /// <summary>

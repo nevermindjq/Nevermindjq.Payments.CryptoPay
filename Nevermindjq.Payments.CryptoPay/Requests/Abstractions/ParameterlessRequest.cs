@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-using Nevermindjq.Payments.CryptoPay.Models;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices;
 
 namespace Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
@@ -8,7 +8,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 ///     Represents a request that doesn't require any parameters.
 /// </summary>
 /// <typeparam name="TResult">Type of response. For example <see cref="Invoice" /></typeparam>
-public abstract class ParameterlessRequest<TResult> : RequestBase<TResult> {
+public abstract class ParameterlessRequest : RequestBase {
 	#region Constructors
 
     /// <summary>

@@ -10,7 +10,7 @@ using Newtonsoft.Json.Serialization;
 namespace Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 /// <inheritdoc />
-public abstract class RequestBase<TResponse> : IRequest<TResponse> {
+public abstract class RequestBase : IRequest {
 	#region Public Methods
 
 	/// <inheritdoc />

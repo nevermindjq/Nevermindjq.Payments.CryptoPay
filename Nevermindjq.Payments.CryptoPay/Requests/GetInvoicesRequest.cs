@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
- 
 
-using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 #pragma warning disable CS8618
@@ -13,7 +12,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this class to get <see cref="Invoices" /> request.
 /// </summary>
-internal sealed class GetInvoicesRequest : ParameterlessRequest<Invoices> {
+internal sealed class GetInvoicesRequest : ParameterlessRequest {
 	#region Constructors
 
     /// <summary>

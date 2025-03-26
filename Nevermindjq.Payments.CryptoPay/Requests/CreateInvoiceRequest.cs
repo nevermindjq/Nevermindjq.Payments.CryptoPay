@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
 using Nevermindjq.Payments.CryptoPay.Converters;
-using Nevermindjq.Payments.CryptoPay.Models;
-using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Abstractions;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 #pragma warning disable CS8618
@@ -14,7 +14,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this class to create <see cref="Invoice" /> request.
 /// </summary>
-public sealed class CreateInvoiceRequest : ParameterlessRequest<Invoice>, IInvoice {
+public sealed class CreateInvoiceRequest : ParameterlessRequest, IInvoice {
 	#region Constructors
 
     /// <summary>

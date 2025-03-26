@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using Nevermindjq.Payments.CryptoPay.Models;
+using Nevermindjq.Payments.CryptoPay.Models.Transfers;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 #pragma warning disable CS8618
@@ -11,7 +11,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this class to get list of <see cref="Transfer" /> request.
 /// </summary>
-public sealed class GetTransfersRequest : ParameterlessRequest<Transfers> {
+public sealed class GetTransfersRequest : ParameterlessRequest {
 	#region Constructors
 
     /// <summary>

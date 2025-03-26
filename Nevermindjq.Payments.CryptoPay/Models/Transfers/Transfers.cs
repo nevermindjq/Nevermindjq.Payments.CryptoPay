@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
- 
 
-namespace Nevermindjq.Payments.CryptoPay.Models;
+namespace Nevermindjq.Payments.CryptoPay.Models.Transfers;
 
 /// <summary>
 ///     Object include list of <see cref="Transfer" />.

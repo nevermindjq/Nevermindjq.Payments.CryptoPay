@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 
-using Nevermindjq.Payments.CryptoPay.Models;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Checks;
+using Nevermindjq.Payments.CryptoPay.Models.Checks.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 #pragma warning disable CS8618
@@ -12,7 +13,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this request to get checks created by your app. On success, returns array of <see cref="Check" />.
 /// </summary>
-public sealed class GetChecksRequest : ParameterlessRequest<Checks> {
+public sealed class GetChecksRequest : ParameterlessRequest {
 	#region Constructors
 
     /// <summary>

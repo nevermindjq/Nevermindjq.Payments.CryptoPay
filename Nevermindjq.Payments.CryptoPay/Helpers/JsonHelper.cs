@@ -16,7 +16,9 @@ public static class JsonHelper {
 		},
 		NullValueHandling = NullValueHandling.Ignore,
 		Converters = new List<JsonConverter> {
-			new StringEnumConverter(),
+			new StringEnumConverter() {
+				NamingStrategy = new SnakeCaseNamingStrategy()
+			},
 			new NumberAsStringConverter()
 		}
 	};
@@ -24,7 +26,7 @@ public static class JsonHelper {
 	public static TResponse? Deserialize<TResponse>(Stream stream) {
 		using (var reader = new StreamReader(stream, Encoding.UTF8)) {
 			using (var json = new JsonTextReader(reader)) {
-				var serializer = JsonSerializer.Create(JsonHelper.Settings);
+				var serializer = JsonSerializer.Create(Settings);
 
 				return serializer.Deserialize<TResponse>(json);
 			}

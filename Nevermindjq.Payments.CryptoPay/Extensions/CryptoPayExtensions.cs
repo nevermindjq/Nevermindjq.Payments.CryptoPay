@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 
 using Nevermindjq.Payments.CryptoPay.Exceptions;
 using Nevermindjq.Payments.CryptoPay.Models;
-using Nevermindjq.Payments.CryptoPay.Models.Abstractions;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Checks;
+using Nevermindjq.Payments.CryptoPay.Models.Checks.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Transfers;
 using Nevermindjq.Payments.CryptoPay.Requests;
 using Nevermindjq.Payments.CryptoPay.Services;
 using Nevermindjq.Payments.CryptoPay.Services.Abstractions;
@@ -32,7 +35,7 @@ public static class CryptoPayExtensions {
     /// </param>
     /// <returns>Returns basic information about the bot in form of a <see cref="CryptoPayApplication" /> object.</returns>
     public static async Task<CryptoPayApplication> GetMeAsync(this ICryptoPayClient cryptoPayClientClient, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetMeRequest(), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<CryptoPayApplication>(new GetMeRequest(), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to create a new invoice. On success, returns an object of the created <see cref="Invoice" />.
@@ -94,7 +97,7 @@ public static class CryptoPayExtensions {
     /// </returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<Invoice> CreateInvoiceAsync(this ICryptoPayClient cryptoPayClientClient, double amount, CurrencyTypes currencyType = CurrencyTypes.crypto, string? asset = null, string? fiats = null, IEnumerable<string>? acceptedAssets = null, string? description = null, string? hiddenMessage = null, PaidButtonNames? paidBtnName = null, string? paidBtnUrl = null, string? payload = null, bool allowComments = true, bool allowAnonymous = true, int expiresIn = 2678400, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new CreateInvoiceRequest(amount, currencyType, asset, fiats, acceptedAssets, description, hiddenMessage, paidBtnName, paidBtnUrl, payload, allowComments, allowAnonymous, expiresIn), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<Invoice>(new CreateInvoiceRequest(amount, currencyType, asset, fiats, acceptedAssets, description, hiddenMessage, paidBtnName, paidBtnUrl, payload, allowComments, allowAnonymous, expiresIn), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to get a balance of your app. Returns array of <see cref="Balance" />.
@@ -109,7 +112,7 @@ public static class CryptoPayExtensions {
     /// <returns>List of <see cref="Balance" /></returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<List<Balance>> GetBalanceAsync(this ICryptoPayClient cryptoPayClientClient, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetBalanceRequest(), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<List<Balance>>(new GetBalanceRequest(), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to get exchange rates of supported currencies. Returns array of <see cref="ExchangeRate" />
@@ -124,7 +127,7 @@ public static class CryptoPayExtensions {
     /// <returns>List of <see cref="ExchangeRate" /></returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<List<ExchangeRate>> GetExchangeRatesAsync(this ICryptoPayClient cryptoPayClientClient, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetExchangeRatesRequest(), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<List<ExchangeRate>>(new GetExchangeRatesRequest(), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to get a list of supported currencies. Returns array of <see cref="Currency" />
@@ -139,7 +142,7 @@ public static class CryptoPayExtensions {
     /// <returns>List of <see cref="Currency" /></returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<List<Currency>> GetCurrenciesAsync(this ICryptoPayClient cryptoPayClientClient, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetCurrenciesRequest(), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<List<Currency>>(new GetCurrenciesRequest(), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to send coins from your app's balance to a user. On success, returns object of completed
@@ -185,7 +188,7 @@ public static class CryptoPayExtensions {
     /// </returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<Transfer> TransferAsync(this ICryptoPayClient cryptoPayClientClient, long userId, string asset, double amount, string spendId, string? comment = null, bool? disableSendNotification = null, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new TransferRequest(userId, asset, amount, spendId, comment, disableSendNotification), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<Transfer>(new TransferRequest(userId, asset, amount, spendId, comment, disableSendNotification), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to get transfers created by your app. On success, returns array of <see cref="Transfer" />.
@@ -214,7 +217,7 @@ public static class CryptoPayExtensions {
     /// </returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<Transfers> GetTransfersAsync(this ICryptoPayClient cryptoPayClientClient, IEnumerable<string>? asset = null, IEnumerable<string>? transferIds = null, string? spendId = null, int offset = 0, int count = 100, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetTransfersRequest(asset, transferIds, spendId, offset, count), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<Transfers>(new GetTransfersRequest(asset, transferIds, spendId, offset, count), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to get invoices of your app. On success, returns array of <see cref="Invoice" />.
@@ -245,7 +248,7 @@ public static class CryptoPayExtensions {
     /// </returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<Invoices> GetInvoicesAsync(this ICryptoPayClient cryptoPayClientClient, IEnumerable<string>? assets = null, IEnumerable<long>? invoiceIds = null, Statuses? status = null, int offset = 0, int count = 100, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetInvoicesRequest(assets, invoiceIds, status, offset, count), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<Invoices>(new GetInvoicesRequest(assets, invoiceIds, status, offset, count), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     /// </summary>
@@ -262,7 +265,7 @@ public static class CryptoPayExtensions {
     /// </returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<bool> DeleteInvoiceAsync(this ICryptoPayClient cryptoPayClientClient, long invoiceId, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new DeleteInvoiceRequest(invoiceId), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<bool>(new DeleteInvoiceRequest(invoiceId), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to create a new <see cref="Check" />.
@@ -287,7 +290,7 @@ public static class CryptoPayExtensions {
     /// <returns><see cref="Check" />On success, returns an <see cref="Check" /> of the created.</returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<Check> CreateCheckAsync(this ICryptoPayClient cryptoPayClientClient, string asset, double amount, long? pinToUserId = null, string? pinToUsername = null, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new CreateCheckRequest(asset, amount, pinToUserId, pinToUsername), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<Check>(new CreateCheckRequest(asset, amount, pinToUserId, pinToUsername), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to delete checks created by your app.
@@ -303,7 +306,7 @@ public static class CryptoPayExtensions {
     /// <returns>Returns True on success.</returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<bool> DeleteCheckAsync(this ICryptoPayClient cryptoPayClientClient, long checkId, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new DeleteCheckRequest(checkId), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<bool>(new DeleteCheckRequest(checkId), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to get checks created by your app.
@@ -332,7 +335,7 @@ public static class CryptoPayExtensions {
     /// <returns><see cref="Check" />On success, returns array of <see cref="Check" /></returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<Checks> GetChecksAsync(this ICryptoPayClient cryptoPayClientClient, IEnumerable<string>? assets = null, IEnumerable<long>? checkIds = null, IEnumerable<Statuses>? status = null, int offset = 0, int count = 100, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetChecksRequest(assets, checkIds, status, offset, count), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<Checks>(new GetChecksRequest(assets, checkIds, status, offset, count), cancellationToken).ConfigureAwait(false);
 
     /// <summary>
     ///     Use this method to get app statistics. On success, returns <see cref="AppStats" />.
@@ -352,5 +355,5 @@ public static class CryptoPayExtensions {
     /// <returns>On success, returns <see cref="AppStats" /></returns>
     /// <exception cref="RequestException">This exception can be thrown.</exception>
     public static async Task<AppStats> GetStatsAsync(this ICryptoPayClient cryptoPayClientClient, DateTime? startAt = null, DateTime? endAt = null, CancellationToken cancellationToken = default) =>
-		await cryptoPayClientClient.MakeRequestAsync(new GetStatsRequest(startAt, endAt), cancellationToken).ConfigureAwait(false);
+		await cryptoPayClientClient.MakeRequestAsync<AppStats>(new GetStatsRequest(startAt, endAt), cancellationToken).ConfigureAwait(false);
 }

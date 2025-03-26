@@ -33,7 +33,7 @@ public sealed class CryptoPayClient : ICryptoPayClient {
 	}
 
 	/// <inheritdoc />
-	public async Task<TResponse> MakeRequestAsync<TResponse>(IRequest<TResponse> api_request, CancellationToken cancellationToken = default) {
+	public async Task<TResponse> MakeRequestAsync<TResponse>(IRequest api_request, CancellationToken cancellationToken = default) {
 		// Request
 		using var request = new HttpRequestMessage(api_request.Method, Path.Combine(_http.BaseAddress!.AbsolutePath, "api", api_request.MethodName)) {
 			Content = api_request.ToHttpContent()

@@ -3,7 +3,7 @@ using System.Linq;
 
 using Nevermindjq.Payments.CryptoPay.Extensions;
 
-namespace Nevermindjq.Payments.CryptoPay.Models.Abstractions;
+namespace Nevermindjq.Payments.CryptoPay.Models.Invoices;
 
 /// <summary>
 ///     List of <see cref="Invoice" />. You can get invoices use

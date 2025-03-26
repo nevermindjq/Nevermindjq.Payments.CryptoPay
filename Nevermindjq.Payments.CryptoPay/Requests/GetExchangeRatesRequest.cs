@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-using Nevermindjq.Payments.CryptoPay.Models;
+﻿using Nevermindjq.Payments.CryptoPay.Models;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 namespace Nevermindjq.Payments.CryptoPay.Requests;
@@ -8,7 +6,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this class to get list of <see cref="ExchangeRate" /> request.
 /// </summary>
-internal sealed class GetExchangeRatesRequest : ParameterlessRequest<List<ExchangeRate>> {
+internal sealed class GetExchangeRatesRequest : ParameterlessRequest {
 	/// <summary>
 	///     Initializes a new request to get list of <see cref="ExchangeRate" />
 	/// </summary>

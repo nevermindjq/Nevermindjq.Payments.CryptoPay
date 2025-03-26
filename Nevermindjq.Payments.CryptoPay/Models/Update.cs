@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices;
 
 #pragma warning disable CS8618
 

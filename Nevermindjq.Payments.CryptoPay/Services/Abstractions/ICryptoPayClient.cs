@@ -23,5 +23,5 @@ public interface ICryptoPayClient {
 	/// <typeparam name="TResponse">Type of response see child of <see cref="ParameterlessRequest{TResult}" /></typeparam>
 	/// <returns>Instance type of TResponse</returns>
 	/// <exception cref="RequestException">This exception can be thrown.</exception>
-	Task<TResponse> MakeRequestAsync<TResponse>(IRequest<TResponse> api_request, CancellationToken cancellationToken = default);
+	Task<TResponse> MakeRequestAsync<TResponse>(IRequest api_request, CancellationToken cancellationToken = default);
 }
