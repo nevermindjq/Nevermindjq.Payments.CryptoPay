@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Text;
 
 using Nevermindjq.Payments.CryptoPay.Converters;
@@ -16,9 +17,7 @@ public static class JsonHelper {
 		},
 		NullValueHandling = NullValueHandling.Ignore,
 		Converters = new List<JsonConverter> {
-			new StringEnumConverter {
-				NamingStrategy = new SnakeCaseNamingStrategy()
-			},
+			new StringEnumConverter(),
 			new NumberAsStringConverter()
 		}
 	};
@@ -37,5 +36,9 @@ public static class JsonHelper {
 		using (var memory = new MemoryStream(bytes)) {
 			return Deserialize<TResponse>(memory);
 		}
+	}
+
+	public static HttpContent ToJsonContent(this object obj) {
+		return new StringContent(JsonConvert.SerializeObject(obj, Settings), Encoding.UTF8, "application/json");
 	}
 }

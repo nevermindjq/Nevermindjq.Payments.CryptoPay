@@ -13,7 +13,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Checks;
 /// <summary>
 ///     Use this request to get checks created by your app. On success, returns array of <see cref="Check" />.
 /// </summary>
-public sealed class GetChecksRequest : ParameterlessRequest {
+public sealed class GetChecksRequest : RequestBase {
 	#region Constructors
 
     /// <summary>

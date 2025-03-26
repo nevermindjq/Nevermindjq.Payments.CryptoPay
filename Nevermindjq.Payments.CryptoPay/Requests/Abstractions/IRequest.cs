@@ -15,10 +15,4 @@ public interface IRequest {
     ///     API method name.
     /// </summary>
     string MethodName { get; }
-
-    /// <summary>
-    ///     Generate content of HTTP message.
-    /// </summary>
-    /// <returns>Content of HTTP request.</returns>
-    HttpContent ToHttpContent();
 }

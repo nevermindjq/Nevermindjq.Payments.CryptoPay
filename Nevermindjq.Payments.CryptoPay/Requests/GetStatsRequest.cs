@@ -9,7 +9,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests;
 /// <summary>
 ///     Use this request to get application statistics. On success, returns <see cref="AppStats" />.
 /// </summary>
-public sealed class GetStatsRequest : ParameterlessRequest {
+public sealed class GetStatsRequest : RequestBase {
 	#region Constructors
 
     /// <summary>

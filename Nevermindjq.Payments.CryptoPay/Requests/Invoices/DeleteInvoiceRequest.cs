@@ -7,7 +7,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Invoices;
 /// <summary>
 ///     Use this method to delete invoices created by your app.
 /// </summary>
-public sealed class DeleteInvoiceRequest : ParameterlessRequest {
+public sealed class DeleteInvoiceRequest : RequestBase {
 	#region Constructors
 
     /// <summary>

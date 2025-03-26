@@ -6,7 +6,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Checks;
 /// <summary>
 ///     Use this method to create a new check. On success, returns an object of the created <see cref="Check" />.
 /// </summary>
-public sealed class CreateCheckRequest : ParameterlessRequest {
+public sealed class CreateCheckRequest : RequestBase {
 	#region Constructors
 
     /// <summary>

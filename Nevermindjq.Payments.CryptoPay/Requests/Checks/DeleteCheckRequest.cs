@@ -5,7 +5,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Checks;
 /// <summary>
 ///     Use this request to delete checks created by your app. Returns True on success.
 /// </summary>
-public sealed class DeleteCheckRequest : ParameterlessRequest {
+public sealed class DeleteCheckRequest : RequestBase {
 	#region Constructors
 
     /// <summary>

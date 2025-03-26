@@ -11,7 +11,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Transfers;
 /// <summary>
 ///     Use this class to get list of <see cref="Transfer" /> request.
 /// </summary>
-public sealed class GetTransfersRequest : ParameterlessRequest {
+public sealed class GetTransfersRequest : RequestBase {
 	#region Constructors
 
     /// <summary>

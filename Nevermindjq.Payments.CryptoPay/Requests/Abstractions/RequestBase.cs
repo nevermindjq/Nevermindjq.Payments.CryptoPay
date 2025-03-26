@@ -11,26 +11,6 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
 /// <inheritdoc />
 public abstract class RequestBase : IRequest {
-	#region Public Methods
-
-	/// <inheritdoc />
-	public HttpContent ToHttpContent() {
-		var payload = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
-			ContractResolver = new DefaultContractResolver {
-				NamingStrategy = new SnakeCaseNamingStrategy()
-			},
-			NullValueHandling = NullValueHandling.Ignore,
-			Converters = new List<JsonConverter> {
-				new StringEnumConverter(),
-				new NumberAsStringConverter()
-			}
-		});
-
-		return new StringContent(payload, Encoding.UTF8, "application/json");
-	}
-
-	#endregion
-
 	#region Constructors
 
     /// <summary>

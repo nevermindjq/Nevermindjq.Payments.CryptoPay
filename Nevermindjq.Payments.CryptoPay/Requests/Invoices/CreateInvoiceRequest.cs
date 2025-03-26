@@ -14,7 +14,7 @@ namespace Nevermindjq.Payments.CryptoPay.Requests.Invoices;
 /// <summary>
 ///     Use this class to create <see cref="Invoice" /> request.
 /// </summary>
-public sealed class CreateInvoiceRequest : ParameterlessRequest, IInvoice {
+public sealed class CreateInvoiceRequest : RequestBase, IInvoice {
 	#region Constructors
 
     /// <summary>
