@@ -4,18 +4,19 @@
         <LangVersion>default</LangVersion>
         <Nullable>enable</Nullable>
         <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <IsPackable>true</IsPackable>
         
         <NoWarn>CS1591;CS1591;CS1574</NoWarn>
 
         <PackageVersion>2.0.0</PackageVersion>
         <Title>Crypto Pay Client</Title>
-        <Authors>Alexander Shitov</Authors>
+        <Authors>Alexander Shitov, Nevermindjq</Authors>
         <Description>Cryptocurrency payment system based on @cryptobot in Telegram</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageIcon>package-icon.png</PackageIcon>
         <PackageTags>Crypto;Payment System;Payments;CryptoPay;CryptoBot;CryptoPayBot;Telegram;API</PackageTags>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Copyright>Copyright © CryptoPay.NET 2024</Copyright>
         
