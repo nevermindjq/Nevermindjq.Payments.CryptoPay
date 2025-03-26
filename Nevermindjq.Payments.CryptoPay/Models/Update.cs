@@ -1,5 +1,6 @@
 ﻿using System;
 
+using Nevermindjq.Payments.CryptoPay.Helpers;
 using Nevermindjq.Payments.CryptoPay.Models.Enums;
 using Nevermindjq.Payments.CryptoPay.Models.Invoices;
 

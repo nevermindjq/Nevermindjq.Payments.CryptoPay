@@ -16,7 +16,7 @@ public static class JsonHelper {
 		},
 		NullValueHandling = NullValueHandling.Ignore,
 		Converters = new List<JsonConverter> {
-			new StringEnumConverter() {
+			new StringEnumConverter {
 				NamingStrategy = new SnakeCaseNamingStrategy()
 			},
 			new NumberAsStringConverter()

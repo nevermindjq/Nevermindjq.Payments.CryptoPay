@@ -7,7 +7,7 @@ using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 #pragma warning disable CS8618
 #pragma warning disable CS8601
 
-namespace Nevermindjq.Payments.CryptoPay.Requests;
+namespace Nevermindjq.Payments.CryptoPay.Requests.Invoices;
 
 /// <summary>
 ///     Use this class to get <see cref="Invoices" /> request.

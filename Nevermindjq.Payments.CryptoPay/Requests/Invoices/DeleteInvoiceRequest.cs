@@ -2,7 +2,7 @@
 
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
-namespace Nevermindjq.Payments.CryptoPay.Requests;
+namespace Nevermindjq.Payments.CryptoPay.Requests.Invoices;
 
 /// <summary>
 ///     Use this method to delete invoices created by your app.
@@ -18,13 +18,9 @@ public sealed class DeleteInvoiceRequest : ParameterlessRequest {
 
 	#endregion
 
-	#region Public Fields
-
     /// <summary>
     ///     Unique ID for this invoice.
     /// </summary>
     [JsonRequired]
 	public long InvoiceId { get; set; }
-
-	#endregion
 }

@@ -1,6 +1,6 @@
 ﻿using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
-namespace Nevermindjq.Payments.CryptoPay.Requests;
+namespace Nevermindjq.Payments.CryptoPay.Requests.Checks;
 
 /// <summary>
 ///     Use this request to delete checks created by your app. Returns True on success.
@@ -16,12 +16,8 @@ public sealed class DeleteCheckRequest : ParameterlessRequest {
 
 	#endregion
 
-	#region Public Fields
-
     /// <summary>
     ///     Unique ID for this check.
     /// </summary>
     public long CheckId { get; private set; }
-
-	#endregion
 }

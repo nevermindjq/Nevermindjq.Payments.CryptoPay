@@ -8,7 +8,7 @@ using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 #pragma warning disable CS8618
 #pragma warning disable CS8601
 
-namespace Nevermindjq.Payments.CryptoPay.Requests;
+namespace Nevermindjq.Payments.CryptoPay.Requests.Checks;
 
 /// <summary>
 ///     Use this request to get checks created by your app. On success, returns array of <see cref="Check" />.
@@ -37,8 +37,6 @@ public sealed class GetChecksRequest : ParameterlessRequest {
 
 	#endregion
 
-	#region Public Fields
-
     /// <summary>
     ///     Optional. Cryptocurrency alphabetic code. Defaults to all currencies.
     /// </summary>
@@ -63,6 +61,4 @@ public sealed class GetChecksRequest : ParameterlessRequest {
     ///     Optional. Number of check to be returned. Values between 1-1000 are accepted. Defaults to 100.
     /// </summary>
     public int Count { get; private set; }
-
-	#endregion
 }

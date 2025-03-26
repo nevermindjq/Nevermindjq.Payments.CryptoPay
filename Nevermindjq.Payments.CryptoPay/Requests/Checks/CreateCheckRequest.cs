@@ -1,7 +1,7 @@
 ﻿using Nevermindjq.Payments.CryptoPay.Models.Checks;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 
-namespace Nevermindjq.Payments.CryptoPay.Requests;
+namespace Nevermindjq.Payments.CryptoPay.Requests.Checks;
 
 /// <summary>
 ///     Use this method to create a new check. On success, returns an object of the created <see cref="Check" />.
@@ -31,7 +31,6 @@ public sealed class CreateCheckRequest : ParameterlessRequest {
 
 	#endregion
 
-	#region Public Fields
 
     /// <summary>
     ///     Cryptocurrency alphabetic code.
@@ -54,6 +53,4 @@ public sealed class CreateCheckRequest : ParameterlessRequest {
     ///     Optional. A user with the specified username will be able to activate the check.
     /// </summary>
     public string PinToUsername { get; set; }
-
-	#endregion
 }

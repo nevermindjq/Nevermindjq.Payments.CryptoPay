@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Http;
 
 using Nevermindjq.Payments.CryptoPay.Services;
 
-// ReSharper disable once CheckNamespace
-namespace Nevermindjq.Payments.CryptoPay;
+namespace Nevermindjq.Payments.CryptoPay.Helpers;
 
 /// <summary>
 ///     Helper for main <see cref="CryptoPayClient" />.

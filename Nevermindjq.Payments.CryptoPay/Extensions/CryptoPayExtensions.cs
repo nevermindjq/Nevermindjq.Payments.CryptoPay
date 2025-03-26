@@ -11,6 +11,9 @@ using Nevermindjq.Payments.CryptoPay.Models.Invoices;
 using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 using Nevermindjq.Payments.CryptoPay.Models.Transfers;
 using Nevermindjq.Payments.CryptoPay.Requests;
+using Nevermindjq.Payments.CryptoPay.Requests.Checks;
+using Nevermindjq.Payments.CryptoPay.Requests.Invoices;
+using Nevermindjq.Payments.CryptoPay.Requests.Transfers;
 using Nevermindjq.Payments.CryptoPay.Services;
 using Nevermindjq.Payments.CryptoPay.Services.Abstractions;
 
