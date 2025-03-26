@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 using Nevermindjq.Payments.CryptoPay.Models.Checks;
-using Nevermindjq.Payments.CryptoPay.Models.Checks.Enums;
 using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests.Abstractions;
 using Nevermindjq.Payments.CryptoPay.Requests.Checks.Abstractions;

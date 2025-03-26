@@ -2,7 +2,7 @@
 using System.Net;
 
 using Nevermindjq.Payments.CryptoPay.Models;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 
 using Xunit;
 

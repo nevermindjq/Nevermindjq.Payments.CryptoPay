@@ -1,5 +1,5 @@
 using Nevermindjq.Payments.CryptoPay.Extensions;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 using Nevermindjq.Payments.CryptoPay.Services.Abstractions;
 using Nevermindjq.Telegram.Bot.Attributes;
 using Nevermindjq.Telegram.Bot.Commands.Filtered;

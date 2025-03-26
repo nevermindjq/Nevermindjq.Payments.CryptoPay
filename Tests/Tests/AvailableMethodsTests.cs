@@ -2,16 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Nevermindjq.Payments.CryptoPay;
 using Nevermindjq.Payments.CryptoPay.Exceptions;
 using Nevermindjq.Payments.CryptoPay.Extensions;
 using Nevermindjq.Payments.CryptoPay.Models;
-using Nevermindjq.Payments.CryptoPay.Models.Enums;
+using Nevermindjq.Payments.CryptoPay.Models.Invoices.Enums;
 using Nevermindjq.Payments.CryptoPay.Requests;
+using Nevermindjq.Payments.CryptoPay.Requests.Checks;
+using Nevermindjq.Payments.CryptoPay.Requests.Invoices;
+using Nevermindjq.Payments.CryptoPay.Requests.Transfers;
 using Nevermindjq.Payments.CryptoPay.Services;
 using Nevermindjq.Payments.CryptoPay.Services.Abstractions;
 
@@ -41,10 +42,10 @@ public class AvailableMethodsTests {
 
 	private readonly CancellationToken cancellationToken = new CancellationTokenSource().Token;
 
-	private readonly ICryptoPayClient cryptoPayClient = new CryptoPayClient(new HttpClient {
-		BaseAddress = new Uri(CryptoPayTestHelper.ApiUrl),
-		DefaultRequestHeaders = { { "Crypto-Pay-API-Token", CryptoPayTestHelper.Token } }
-	});
+	private readonly ICryptoPayClient cryptoPayClient = new CryptoPayClient(
+		CryptoPayTestHelper.Token,
+		apiUrl: CryptoPayTestHelper.ApiUrl
+	);
 
 	#endregion
 

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 
 using Nevermindjq.Payments.CryptoPay.Models;
-using Nevermindjq.Payments.CryptoPay.Requests;
+using Nevermindjq.Payments.CryptoPay.Requests.Checks;
 
 using Xunit;
 
